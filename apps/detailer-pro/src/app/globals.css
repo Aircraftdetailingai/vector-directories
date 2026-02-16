@@ -1,0 +1,46 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply scroll-smooth;
+  }
+  body {
+    @apply font-body text-slate-300 antialiased;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-heading text-white;
+  }
+}
+
+/* Pro card surface */
+.card-pro {
+  @apply rounded-lg border border-slate-700 bg-slate-800 shadow-sm transition-all duration-200;
+}
+.card-pro:hover {
+  @apply border-electric-500/40 shadow-electric-500/5 shadow-lg;
+}
+
+/* Metric display */
+.metric-value {
+  @apply font-heading text-2xl font-bold text-white tabular-nums;
+}
+.metric-label {
+  @apply text-xs font-medium uppercase tracking-wider text-slate-500;
+}
+
+/* Pro verified badge */
+.badge-pro {
+  @apply inline-flex items-center gap-1 rounded border border-electric-500/30 bg-electric-500/10 px-2 py-0.5 text-xs font-medium text-electric-400;
+}
+
+/* Glow effect for featured elements */
+.glow-blue {
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.15);
+}
