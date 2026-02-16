@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply scroll-smooth;
+  }
+  body {
+    @apply font-body text-gray-700 antialiased;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-heading;
+  }
+}
+
+/* Warm card hover effect */
+.card-warm {
+  @apply rounded-2xl border border-teal-100 bg-white shadow-sm transition-all duration-200;
+}
+.card-warm:hover {
+  @apply shadow-md border-teal-200 -translate-y-0.5;
+}

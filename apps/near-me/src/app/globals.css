@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply scroll-smooth;
+  }
+  body {
+    @apply font-body text-gray-800 antialiased;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-heading;
+  }
+}
+
+/* Mapbox GL JS styles */
+.mapboxgl-map {
+  font-family: var(--font-roboto), system-ui, sans-serif;
+}
+
+.mapboxgl-popup-content {
+  @apply rounded-lg p-3 shadow-lg;
+}
+
+.mapboxgl-popup-close-button {
+  @apply text-gray-400 hover:text-gray-600;
+}
