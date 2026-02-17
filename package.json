@@ -15,6 +15,7 @@
   },
   "packageManager": "pnpm@9.15.4",
   "dependencies": {
-    "mapbox-gl": "^3.18.1"
+    "mapbox-gl": "^3.18.1",
+    "vercel": "^50.18.0"
   }
 }
