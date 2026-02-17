@@ -1,0 +1,56 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply scroll-smooth;
+  }
+  body {
+    @apply font-body text-noir-500 antialiased;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-heading text-noir-900;
+  }
+}
+
+/* Editor's Choice badge */
+.badge-editors-choice {
+  @apply inline-flex items-center gap-1.5 border border-gold-200 bg-gold-50 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-gold-700;
+}
+
+/* Gold divider line */
+.gold-divider {
+  @apply h-px w-16 bg-gold-500;
+}
+
+/* Luxury card */
+.luxury-card {
+  @apply border border-ivory-200 bg-white transition-all duration-300;
+}
+.luxury-card:hover {
+  @apply border-gold-300 shadow-lg;
+}
+
+/* Dark section */
+.section-dark {
+  @apply bg-noir-900 text-ivory-100;
+}
+
+/* Gold accent text */
+.text-accent {
+  @apply text-gold-500;
+}
+
+/* Before/after slider track */
+.slider-track {
+  @apply relative overflow-hidden;
+}
+.slider-handle {
+  @apply absolute top-0 bottom-0 z-10 w-1 cursor-ew-resize bg-gold-500;
+}

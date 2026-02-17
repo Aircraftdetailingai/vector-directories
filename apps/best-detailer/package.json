@@ -1,0 +1,31 @@
+{
+  "name": "@vector/best-detailer",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --port 3006",
+    "build": "next build",
+    "start": "next start --port 3006",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "next": "14.2.35",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "@vector/db": "workspace:*",
+    "@vector/types": "workspace:*",
+    "@vector/auth": "workspace:*",
+    "@vector/email": "workspace:*",
+    "@vector/utils": "workspace:*",
+    "@vector/billing": "workspace:*"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.3",
+    "tailwindcss": "^3.4.17",
+    "postcss": "^8.4.49",
+    "autoprefixer": "^10.4.20",
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18"
+  }
+}
