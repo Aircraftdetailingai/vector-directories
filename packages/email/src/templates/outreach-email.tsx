@@ -9,7 +9,6 @@ import {
   Hr,
   Heading,
 } from "@react-email/components";
-import * as React from "react";
 
 interface OutreachEmailProps {
   companyName: string;

@@ -7,7 +7,6 @@ import {
   Text,
   Hr,
 } from "@react-email/components";
-import * as React from "react";
 
 interface ClaimCodeEmailProps {
   companyName: string;

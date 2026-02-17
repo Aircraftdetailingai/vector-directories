@@ -1,7 +1,5 @@
 "use client";
 
-import React from "react";
-
 export interface PaginationProps {
   currentPage: number;
   totalPages: number;

@@ -1,5 +1,4 @@
 import { Html, Head, Body, Container, Section, Text, Link, Hr } from "@react-email/components";
-import * as React from "react";
 
 interface ScoreChangeEmailProps {
   companyName: string;

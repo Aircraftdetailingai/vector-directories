@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useCallback } from "react";
+import { useState, useCallback } from "react";
 import * as Popover from "@radix-ui/react-popover";
 
 export interface AirportOption {
