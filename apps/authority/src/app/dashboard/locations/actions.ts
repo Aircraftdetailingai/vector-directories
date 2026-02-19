@@ -35,7 +35,7 @@ export async function addLocation(
       };
     }
 
-    const { error: insertError } = await supabase.from("locations").insert({
+    const { error: insertError } = await supabase.from("company_locations").insert({
       company_id: companyId,
       name,
       address_line1: address,
@@ -73,7 +73,7 @@ export async function removeLocation(
     const supabase = createBrowserClient();
 
     const { error: deleteError } = await supabase
-      .from("locations")
+      .from("company_locations")
       .delete()
       .eq("id", locationId);
 

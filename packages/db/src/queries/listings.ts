@@ -6,7 +6,7 @@ export async function getListingById(
   id: string,
 ): Promise<Listing | null> {
   const { data, error } = await client
-    .from("listings")
+    .from("directory_listings")
     .select("*")
     .eq("id", id)
     .single();
@@ -20,7 +20,7 @@ export async function getListingBySlug(
   slug: string,
 ): Promise<Listing | null> {
   const { data, error } = await client
-    .from("listings")
+    .from("directory_listings")
     .select("*")
     .eq("slug", slug)
     .single();
@@ -34,7 +34,7 @@ export async function getListingsByCompanyId(
   companyId: string,
 ): Promise<Listing[]> {
   const { data, error } = await client
-    .from("listings")
+    .from("directory_listings")
     .select("*")
     .eq("company_id", companyId)
     .order("created_at", { ascending: false });

@@ -56,7 +56,7 @@ export async function updateCompanyProfile(
     }
 
     const { error: companyError } = await supabase
-      .from("companies")
+      .from("directory_companies")
       .update(updatePayload)
       .eq("id", companyId);
 

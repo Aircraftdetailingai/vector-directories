@@ -31,7 +31,7 @@ export async function POST(request: NextRequest) {
         if (result.companyId) {
           // Update company tier
           await client
-            .from("companies")
+            .from("directory_companies")
             .update({
               tier: result.tier,
               stripe_customer_id: result.customerId,
@@ -47,7 +47,7 @@ export async function POST(request: NextRequest) {
       case "customer.subscription.updated": {
         if (result.customerId) {
           await client
-            .from("companies")
+            .from("directory_companies")
             .update({ tier: result.tier })
             .eq("stripe_customer_id", result.customerId);
         }
@@ -60,7 +60,7 @@ export async function POST(request: NextRequest) {
       case "customer.subscription.deleted": {
         if (result.customerId) {
           await client
-            .from("companies")
+            .from("directory_companies")
             .update({ tier: "basic" })
             .eq("stripe_customer_id", result.customerId);
         }

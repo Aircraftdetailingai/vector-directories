@@ -21,7 +21,7 @@ export async function searchCompanies(
   const from = (page - 1) * per_page;
   const to = from + per_page - 1;
 
-  let q = client.from("companies").select("*", { count: "exact" });
+  let q = client.from("directory_companies").select("*", { count: "exact" });
 
   if (query) {
     q = q.or(`name.ilike.%${query}%,description.ilike.%${query}%`);

@@ -44,7 +44,7 @@ export async function addLocation(
       };
     }
 
-    const { error } = await client.from("locations").insert({
+    const { error } = await client.from("company_locations").insert({
       company_id: companyId,
       name,
       address_line1: addressLine1,
@@ -81,7 +81,7 @@ export async function removeLocation(
     const client = createBrowserClient();
 
     const { error } = await client
-      .from("locations")
+      .from("company_locations")
       .delete()
       .eq("id", locationId)
       .eq("company_id", companyId);

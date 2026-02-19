@@ -97,7 +97,7 @@ async function main() {
     while (true) {
       const candidateSlug = attempt === 0 ? slug : `${slug}-${attempt + 1}`;
       const { data: existing } = await supabase
-        .from("companies")
+        .from("directory_companies")
         .select("id")
         .eq("slug", candidateSlug)
         .maybeSingle();
@@ -118,7 +118,7 @@ async function main() {
 
     // ── Insert company ────────────────────────────────────────────────────
     const { data: company, error: companyError } = await supabase
-      .from("companies")
+      .from("directory_companies")
       .insert({
         name: row.name.trim(),
         slug,
@@ -163,7 +163,7 @@ async function main() {
 
       const loc = airport.cities[0] ?? { state: row.state, city: row.city };
 
-      const { error: locError } = await supabase.from("locations").insert({
+      const { error: locError } = await supabase.from("company_locations").insert({
         company_id: company.id,
         name: airport.name,
         address_line1: airport.name,

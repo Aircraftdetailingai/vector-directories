@@ -27,7 +27,7 @@ export async function POST() {
     }
 
     const { data: company } = await client
-      .from("companies")
+      .from("directory_companies")
       .select("stripe_customer_id")
       .eq("id", profile.company_id)
       .single();

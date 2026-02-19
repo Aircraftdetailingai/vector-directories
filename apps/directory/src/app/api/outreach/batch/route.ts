@@ -18,7 +18,7 @@ export async function POST(request: NextRequest) {
 
     // ── Query up to 50 unclaimed companies not yet emailed ────────────────
     const { data: companies, error: queryError } = await client
-      .from("companies")
+      .from("directory_companies")
       .select("id, name, slug, email")
       .eq("is_claimed", false)
       .not("email", "is", null)
@@ -34,7 +34,7 @@ export async function POST(request: NextRequest) {
 
     // ── Count total remaining (before this batch) ─────────────────────────
     const { count } = await client
-      .from("companies")
+      .from("directory_companies")
       .select("id", { count: "exact", head: true })
       .eq("is_claimed", false)
       .not("email", "is", null)
@@ -65,7 +65,7 @@ export async function POST(request: NextRequest) {
         });
 
         await client
-          .from("companies")
+          .from("directory_companies")
           .update({ emailed_at: new Date().toISOString() })
           .eq("id", company.id);
 

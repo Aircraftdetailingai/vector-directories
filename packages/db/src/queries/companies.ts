@@ -6,7 +6,7 @@ export async function getCompanyById(
   id: string,
 ): Promise<Company | null> {
   const { data, error } = await client
-    .from("companies")
+    .from("directory_companies")
     .select("*")
     .eq("id", id)
     .single();
@@ -20,7 +20,7 @@ export async function getCompanyBySlug(
   slug: string,
 ): Promise<Company | null> {
   const { data, error } = await client
-    .from("companies")
+    .from("directory_companies")
     .select("*")
     .eq("slug", slug)
     .single();
@@ -39,7 +39,7 @@ export async function listCompanies(
   const to = from + perPage - 1;
 
   const { data, error, count } = await client
-    .from("companies")
+    .from("directory_companies")
     .select("*", { count: "exact" })
     .range(from, to)
     .order("name");
@@ -54,7 +54,7 @@ export async function claimCompany(
   userId: string,
 ): Promise<void> {
   const { error } = await client
-    .from("companies")
+    .from("directory_companies")
     .update({ is_claimed: true, claimed_by: userId })
     .eq("id", companyId);
 
@@ -66,7 +66,7 @@ export async function getCitiesForState(
   stateCode: string,
 ): Promise<string[]> {
   const { data, error } = await client
-    .from("companies")
+    .from("directory_companies")
     .select("city")
     .eq("state", stateCode)
     .not("city", "is", null)

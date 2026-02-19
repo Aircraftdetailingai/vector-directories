@@ -6,7 +6,7 @@ export async function getPhotosByCompanyId(
   companyId: string,
 ): Promise<CompanyPhoto[]> {
   const { data, error } = await client
-    .from("company_photos")
+    .from("company_media")
     .select("*")
     .eq("company_id", companyId)
     .order("sort_order", { ascending: true });
@@ -25,7 +25,7 @@ export async function addPhoto(
   },
 ): Promise<CompanyPhoto> {
   const { data, error } = await client
-    .from("company_photos")
+    .from("company_media")
     .insert(photo)
     .select()
     .single();
@@ -39,7 +39,7 @@ export async function deletePhoto(
   photoId: string,
 ): Promise<void> {
   const { error } = await client
-    .from("company_photos")
+    .from("company_media")
     .delete()
     .eq("id", photoId);
 

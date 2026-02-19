@@ -58,7 +58,7 @@ export async function addPhoto(
       .getPublicUrl(path);
 
     // Insert into DB
-    const { error } = await client.from("company_photos").insert({
+    const { error } = await client.from("company_media").insert({
       company_id: companyId,
       url: urlData.publicUrl,
       alt_text: altText,
@@ -90,7 +90,7 @@ export async function deletePhoto(
     const client = createBrowserClient();
 
     const { error } = await client
-      .from("company_photos")
+      .from("company_media")
       .delete()
       .eq("id", photoId)
       .eq("company_id", companyId);

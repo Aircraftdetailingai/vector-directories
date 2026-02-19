@@ -63,7 +63,7 @@ export async function updateProfile(
     }
 
     const { error } = await client
-      .from("companies")
+      .from("directory_companies")
       .update(updateData)
       .eq("id", companyId);
 

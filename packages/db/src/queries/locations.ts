@@ -6,7 +6,7 @@ export async function getLocationsByCompanyId(
   companyId: string,
 ): Promise<Location[]> {
   const { data, error } = await client
-    .from("locations")
+    .from("company_locations")
     .select("*")
     .eq("company_id", companyId)
     .order("is_headquarters", { ascending: false });
@@ -20,7 +20,7 @@ export async function getLocationById(
   id: string,
 ): Promise<Location | null> {
   const { data, error } = await client
-    .from("locations")
+    .from("company_locations")
     .select("*")
     .eq("id", id)
     .single();
