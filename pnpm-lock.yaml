@@ -395,6 +395,61 @@ importers:
         specifier: ^5.7
         version: 5.9.3
 
+  apps/store:
+    dependencies:
+      '@vector/auth':
+        specifier: workspace:*
+        version: link:../../packages/auth
+      '@vector/billing':
+        specifier: workspace:*
+        version: link:../../packages/billing
+      '@vector/db':
+        specifier: workspace:*
+        version: link:../../packages/db
+      '@vector/email':
+        specifier: workspace:*
+        version: link:../../packages/email
+      '@vector/types':
+        specifier: workspace:*
+        version: link:../../packages/types
+      '@vector/utils':
+        specifier: workspace:*
+        version: link:../../packages/utils
+      next:
+        specifier: ^14.2.29
+        version: 14.2.35(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      react:
+        specifier: ^18.3.1
+        version: 18.3.1
+      react-dom:
+        specifier: ^18.3.1
+        version: 18.3.1(react@18.3.1)
+      zustand:
+        specifier: ^5.0.0
+        version: 5.0.11(@types/react@18.3.28)(react@18.3.1)
+    devDependencies:
+      '@types/node':
+        specifier: ^22
+        version: 22.19.11
+      '@types/react':
+        specifier: ^18
+        version: 18.3.28
+      '@types/react-dom':
+        specifier: ^18
+        version: 18.3.7(@types/react@18.3.28)
+      autoprefixer:
+        specifier: ^10.4.20
+        version: 10.4.24(postcss@8.5.6)
+      postcss:
+        specifier: ^8.4.49
+        version: 8.5.6
+      tailwindcss:
+        specifier: ^3.4.17
+        version: 3.4.19(tsx@4.21.0)
+      typescript:
+        specifier: ^5.7
+        version: 5.9.3
+
   packages/auth:
     dependencies:
       '@supabase/ssr':
@@ -2290,6 +2345,24 @@ packages:
   zod@3.25.76:
     resolution: {integrity: sha512-gzUt/qt81nXsFGKIFcC3YnfEAx5NkunCfnDlvuBSSFS02bcXu4Lmea0AFIUwbLWxWPx3d9p8S5QoaujKcNQxcQ==}
 
+  zustand@5.0.11:
+    resolution: {integrity: sha512-fdZY+dk7zn/vbWNCYmzZULHRrss0jx5pPFiOuMZ/5HJN6Yv3u+1Wswy/4MpZEkEGhtNH+pwxZB8OKgUBPzYAGg==}
+    engines: {node: '>=12.20.0'}
+    peerDependencies:
+      '@types/react': '>=18.0.0'
+      immer: '>=9.0.6'
+      react: '>=18.0.0'
+      use-sync-external-store: '>=1.2.0'
+    peerDependenciesMeta:
+      '@types/react':
+        optional: true
+      immer:
+        optional: true
+      react:
+        optional: true
+      use-sync-external-store:
+        optional: true
+
 snapshots:
 
   '@alloc/quick-lru@5.2.0': {}
@@ -3892,3 +3965,8 @@ snapshots:
   ws@8.19.0: {}
 
   zod@3.25.76: {}
+
+  zustand@5.0.11(@types/react@18.3.28)(react@18.3.1):
+    optionalDependencies:
+      '@types/react': 18.3.28
+      react: 18.3.1
