@@ -2,57 +2,49 @@
 
 import { revalidatePath } from "next/cache";
 
-export async function createProduct(
-  formData: FormData,
-): Promise<{ success: boolean; error?: string }> {
+export async function createProduct(formData: FormData): Promise<void> {
+  const name = formData.get("name") as string;
+  const slug = formData.get("slug") as string;
+  const shortDescription = formData.get("short_description") as string;
+  const description = formData.get("description") as string;
+  const basePrice = parseFloat(formData.get("base_price") as string);
+  const compareAtPrice = formData.get("compare_at_price")
+    ? parseFloat(formData.get("compare_at_price") as string)
+    : null;
+  const brandId = (formData.get("brand_id") as string) || null;
+  const categoryId = (formData.get("category_id") as string) || null;
+  const sku = (formData.get("sku") as string) || null;
+  const tags = (formData.get("tags") as string)
+    ?.split(",")
+    .map((t) => t.trim())
+    .filter(Boolean) ?? [];
+  const weightOz = formData.get("weight_oz")
+    ? parseFloat(formData.get("weight_oz") as string)
+    : null;
+  const length = formData.get("length")
+    ? parseFloat(formData.get("length") as string)
+    : null;
+  const width = formData.get("width")
+    ? parseFloat(formData.get("width") as string)
+    : null;
+  const height = formData.get("height")
+    ? parseFloat(formData.get("height") as string)
+    : null;
+  const supplierId = formData.get("supplier_id") as string;
+  const status = (formData.get("status") as string) || "draft";
+
+  if (!name || !slug || !supplierId) return;
+  if (isNaN(basePrice) || basePrice <= 0) return;
+
+  const dimensionsJson =
+    length || width || height
+      ? { length: length ?? 0, width: width ?? 0, height: height ?? 0 }
+      : null;
+
   try {
-    const name = formData.get("name") as string;
-    const slug = formData.get("slug") as string;
-    const shortDescription = formData.get("short_description") as string;
-    const description = formData.get("description") as string;
-    const basePrice = parseFloat(formData.get("base_price") as string);
-    const compareAtPrice = formData.get("compare_at_price")
-      ? parseFloat(formData.get("compare_at_price") as string)
-      : null;
-    const brandId = (formData.get("brand_id") as string) || null;
-    const categoryId = (formData.get("category_id") as string) || null;
-    const sku = (formData.get("sku") as string) || null;
-    const tags = (formData.get("tags") as string)
-      ?.split(",")
-      .map((t) => t.trim())
-      .filter(Boolean) ?? [];
-    const weightOz = formData.get("weight_oz")
-      ? parseFloat(formData.get("weight_oz") as string)
-      : null;
-    const length = formData.get("length")
-      ? parseFloat(formData.get("length") as string)
-      : null;
-    const width = formData.get("width")
-      ? parseFloat(formData.get("width") as string)
-      : null;
-    const height = formData.get("height")
-      ? parseFloat(formData.get("height") as string)
-      : null;
-    const supplierId = formData.get("supplier_id") as string;
-    const status = (formData.get("status") as string) || "draft";
-
-    if (!name || !slug || !supplierId) {
-      return { success: false, error: "Name, slug, and supplier are required." };
-    }
-
-    if (isNaN(basePrice) || basePrice <= 0) {
-      return { success: false, error: "A valid base price is required." };
-    }
-
-    const dimensionsJson =
-      length || width || height
-        ? { length: length ?? 0, width: width ?? 0, height: height ?? 0 }
-        : null;
-
     const { createBrowserClient } = await import("@vector/db");
     const client = createBrowserClient();
 
-    // Insert the product
     const { data: product, error: productError } = await client
       .from("store_products")
       .insert({
@@ -75,12 +67,11 @@ export async function createProduct(
       .select("id")
       .single();
 
-    if (productError) {
+    if (productError || !product) {
       console.error("Product insert error:", productError);
-      return { success: false, error: "Failed to create product." };
+      return;
     }
 
-    // Insert variants
     const variantCount = parseInt(
       (formData.get("variant_count") as string) || "0",
       10,
@@ -109,7 +100,6 @@ export async function createProduct(
       }
     }
 
-    // Insert images
     const imageCount = parseInt(
       (formData.get("image_count") as string) || "0",
       10,
@@ -129,70 +119,59 @@ export async function createProduct(
         });
       }
     }
-
-    revalidatePath("/supplier/products");
-    return { success: true };
   } catch (err) {
     console.error("createProduct error:", err);
-    return { success: false, error: "An unexpected error occurred." };
   }
+
+  revalidatePath("/supplier/products");
 }
 
-export async function updateProduct(
-  formData: FormData,
-): Promise<{ success: boolean; error?: string }> {
+export async function updateProduct(formData: FormData): Promise<void> {
+  const productId = formData.get("product_id") as string;
+  if (!productId) return;
+
+  const name = formData.get("name") as string;
+  const slug = formData.get("slug") as string;
+  const shortDescription = formData.get("short_description") as string;
+  const description = formData.get("description") as string;
+  const basePrice = parseFloat(formData.get("base_price") as string);
+  const compareAtPrice = formData.get("compare_at_price")
+    ? parseFloat(formData.get("compare_at_price") as string)
+    : null;
+  const brandId = (formData.get("brand_id") as string) || null;
+  const categoryId = (formData.get("category_id") as string) || null;
+  const sku = (formData.get("sku") as string) || null;
+  const tags = (formData.get("tags") as string)
+    ?.split(",")
+    .map((t) => t.trim())
+    .filter(Boolean) ?? [];
+  const weightOz = formData.get("weight_oz")
+    ? parseFloat(formData.get("weight_oz") as string)
+    : null;
+  const length = formData.get("length")
+    ? parseFloat(formData.get("length") as string)
+    : null;
+  const width = formData.get("width")
+    ? parseFloat(formData.get("width") as string)
+    : null;
+  const height = formData.get("height")
+    ? parseFloat(formData.get("height") as string)
+    : null;
+  const status = (formData.get("status") as string) || "draft";
+
+  if (!name || !slug) return;
+  if (isNaN(basePrice) || basePrice <= 0) return;
+
+  const dimensionsJson =
+    length || width || height
+      ? { length: length ?? 0, width: width ?? 0, height: height ?? 0 }
+      : null;
+
   try {
-    const productId = formData.get("product_id") as string;
-    if (!productId) {
-      return { success: false, error: "Product ID is required." };
-    }
-
-    const name = formData.get("name") as string;
-    const slug = formData.get("slug") as string;
-    const shortDescription = formData.get("short_description") as string;
-    const description = formData.get("description") as string;
-    const basePrice = parseFloat(formData.get("base_price") as string);
-    const compareAtPrice = formData.get("compare_at_price")
-      ? parseFloat(formData.get("compare_at_price") as string)
-      : null;
-    const brandId = (formData.get("brand_id") as string) || null;
-    const categoryId = (formData.get("category_id") as string) || null;
-    const sku = (formData.get("sku") as string) || null;
-    const tags = (formData.get("tags") as string)
-      ?.split(",")
-      .map((t) => t.trim())
-      .filter(Boolean) ?? [];
-    const weightOz = formData.get("weight_oz")
-      ? parseFloat(formData.get("weight_oz") as string)
-      : null;
-    const length = formData.get("length")
-      ? parseFloat(formData.get("length") as string)
-      : null;
-    const width = formData.get("width")
-      ? parseFloat(formData.get("width") as string)
-      : null;
-    const height = formData.get("height")
-      ? parseFloat(formData.get("height") as string)
-      : null;
-    const status = (formData.get("status") as string) || "draft";
-
-    if (!name || !slug) {
-      return { success: false, error: "Name and slug are required." };
-    }
-
-    if (isNaN(basePrice) || basePrice <= 0) {
-      return { success: false, error: "A valid base price is required." };
-    }
-
-    const dimensionsJson =
-      length || width || height
-        ? { length: length ?? 0, width: width ?? 0, height: height ?? 0 }
-        : null;
-
     const { createBrowserClient } = await import("@vector/db");
     const client = createBrowserClient();
 
-    const { error: updateError } = await client
+    await client
       .from("store_products")
       .update({
         brand_id: brandId,
@@ -212,12 +191,6 @@ export async function updateProduct(
       })
       .eq("id", productId);
 
-    if (updateError) {
-      console.error("Product update error:", updateError);
-      return { success: false, error: "Failed to update product." };
-    }
-
-    // Remove old variants and re-insert
     await client
       .from("store_product_variants")
       .delete()
@@ -251,7 +224,6 @@ export async function updateProduct(
       }
     }
 
-    // Remove old images and re-insert
     await client
       .from("store_product_images")
       .delete()
@@ -276,42 +248,28 @@ export async function updateProduct(
         });
       }
     }
-
-    revalidatePath("/supplier/products");
-    revalidatePath(`/supplier/products/${productId}`);
-    return { success: true };
   } catch (err) {
     console.error("updateProduct error:", err);
-    return { success: false, error: "An unexpected error occurred." };
   }
+
+  revalidatePath("/supplier/products");
+  revalidatePath(`/supplier/products/${productId}`);
 }
 
-export async function archiveProduct(
-  formData: FormData,
-): Promise<{ success: boolean; error?: string }> {
-  try {
-    const productId = formData.get("product_id") as string;
-    if (!productId) {
-      return { success: false, error: "Product ID is required." };
-    }
+export async function archiveProduct(formData: FormData): Promise<void> {
+  const productId = formData.get("product_id") as string;
+  if (!productId) return;
 
+  try {
     const { createBrowserClient } = await import("@vector/db");
     const client = createBrowserClient();
-
-    const { error } = await client
+    await client
       .from("store_products")
       .update({ status: "archived", updated_at: new Date().toISOString() })
       .eq("id", productId);
-
-    if (error) {
-      console.error("Archive product error:", error);
-      return { success: false, error: "Failed to archive product." };
-    }
-
-    revalidatePath("/supplier/products");
-    return { success: true };
   } catch (err) {
     console.error("archiveProduct error:", err);
-    return { success: false, error: "An unexpected error occurred." };
   }
+
+  revalidatePath("/supplier/products");
 }

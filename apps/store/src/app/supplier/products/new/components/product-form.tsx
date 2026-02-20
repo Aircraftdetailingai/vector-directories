@@ -186,12 +186,12 @@ export function ProductForm({
     });
 
     startTransition(async () => {
-      const action = isEdit ? updateProduct : createProduct;
-      const result = await action(formData);
-      if (result.success) {
+      try {
+        const action = isEdit ? updateProduct : createProduct;
+        await action(formData);
         router.push("/supplier/products");
-      } else {
-        setError(result.error ?? "Something went wrong.");
+      } catch {
+        setError("Something went wrong.");
       }
     });
   }

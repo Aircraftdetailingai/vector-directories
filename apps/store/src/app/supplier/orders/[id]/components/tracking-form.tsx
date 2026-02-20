@@ -36,11 +36,11 @@ export function TrackingForm({
     formData.set("tracking_url", trackingUrl.trim());
 
     startTransition(async () => {
-      const result = await updateTracking(formData);
-      if (result.success) {
+      try {
+        await updateTracking(formData);
         router.refresh();
-      } else {
-        setError(result.error ?? "Failed to update tracking.");
+      } catch {
+        setError("Failed to update tracking.");
       }
     });
   }
