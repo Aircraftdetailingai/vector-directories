@@ -101,18 +101,18 @@ async function fetchDashboardData(): Promise<DashboardData> {
       const claimed = siteListings.filter(
         (l) =>
           l.directory_companies &&
-          (l.directory_companies as Record<string, unknown>).is_claimed === true,
+          (l.directory_companies as unknown as Record<string, unknown>).is_claimed === true,
       ).length;
       const paidListings = siteListings.filter(
         (l) =>
           l.directory_companies &&
-          (l.directory_companies as Record<string, unknown>).tier !== "basic",
+          (l.directory_companies as unknown as Record<string, unknown>).tier !== "basic",
       );
       const paid = paidListings.length;
 
       // Calculate MRR
       const mrr = paidListings.reduce((sum, l) => {
-        const tier = (l.directory_companies as Record<string, unknown>)
+        const tier = (l.directory_companies as unknown as Record<string, unknown>)
           .tier as string;
         return sum + (MRR_BY_TIER[tier] ?? 0);
       }, 0);
