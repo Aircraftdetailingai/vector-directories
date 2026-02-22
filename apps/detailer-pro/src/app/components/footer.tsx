@@ -147,6 +147,14 @@ export default function Footer() {
                   Terms
                 </Link>
               </li>
+              <li>
+                <Link
+                  href="/contact"
+                  className="text-sm text-slate-500 hover:text-slate-300 transition-colors"
+                >
+                  Contact
+                </Link>
+              </li>
             </ul>
           </div>
         </div>

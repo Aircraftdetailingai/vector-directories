@@ -21,7 +21,6 @@ const COMPANY_LINKS = [
 ];
 
 const CONTACT_LINKS = [
-  { label: "press@bestaircraftdetailer.com", href: "mailto:press@bestaircraftdetailer.com" },
   { label: "Advertise", href: "/advertise" },
   { label: "Partnerships", href: "/partnerships" },
 ];

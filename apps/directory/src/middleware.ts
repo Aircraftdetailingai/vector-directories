@@ -1,21 +1,44 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 
-export async function middleware(_request: NextRequest) {
-  // Refresh Supabase auth session cookie on dashboard routes.
-  // We dynamically import @vector/db to create the client since
-  // @supabase/ssr is not a direct dependency of this app.
-  try {
-    const { createBrowserClient } = await import("@vector/db");
-    const client = createBrowserClient();
-    await client.auth.getUser();
-  } catch {
-    // Auth refresh failed — page-level requireAuth() will handle redirect
+const SITE_KEY = "directory";
+
+export async function middleware(request: NextRequest) {
+  const pathname = request.nextUrl.pathname;
+
+  // Auth session refresh for protected routes
+  if (pathname.startsWith("/dashboard") || pathname.startsWith("/admin")) {
+    try {
+      const { createBrowserClient } = await import("@vector/db");
+      const client = createBrowserClient();
+      await client.auth.getUser();
+    } catch {
+      // Auth refresh failed
+    }
+  }
+
+  // Page view tracking for actual page routes
+  if (
+    !pathname.startsWith("/api") &&
+    !pathname.startsWith("/_next") &&
+    !pathname.includes(".")
+  ) {
+    try {
+      const { createBrowserClient } = await import("@vector/db");
+      const client = createBrowserClient();
+      const today = new Date().toISOString().split("T")[0];
+      await client.rpc("increment_page_view", {
+        p_site_key: SITE_KEY,
+        p_date: today,
+      });
+    } catch {
+      // Page view tracking failed silently
+    }
   }
 
   return NextResponse.next();
 }
 
 export const config = {
-  matcher: ["/dashboard/:path*"],
+  matcher: ["/((?!_next/static|_next/image|favicon\\.ico|.*\\\\..*).*)" ],
 };

@@ -5,3 +5,4 @@ export { VerificationEmail } from "./templates/verification";
 export { ScoreChangeEmail } from "./templates/score-change";
 export { ClaimCodeEmail } from "./templates/claim-code";
 export { OutreachEmail } from "./templates/outreach-email";
+export { ContactNotificationEmail } from "./templates/contact-notification";
