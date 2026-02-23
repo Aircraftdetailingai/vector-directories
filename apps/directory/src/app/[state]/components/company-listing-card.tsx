@@ -117,7 +117,6 @@ export function CompanyListingCard({ company }: CompanyListingCardProps) {
           <a
             href={`tel:${company.phone}`}
             className="text-sm text-gray-600 transition-colors hover:text-forest-700"
-            onClick={(e) => e.stopPropagation()}
           >
             {formatPhone(company.phone)}
           </a>

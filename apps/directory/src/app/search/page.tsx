@@ -248,112 +248,102 @@ export async function generateMetadata({
    ────────────────────────────────────────────────────────────────────────── */
 
 export default async function SearchPage({ searchParams }: SearchPageProps) {
-  try {
-    const resolved = await searchParams;
+  const resolved = await searchParams;
 
-    const query = resolved.q?.trim() ?? "";
-    const state = resolved.state ?? "";
-    const city = resolved.city ?? "";
-    const service = resolved.service ?? "";
-    const tier = resolved.tier ?? "";
-    const verified = resolved.verified === "1";
-    const sort = resolved.sort ?? "relevance";
-    const page = Math.max(1, parseInt(resolved.page ?? "1", 10) || 1);
+  const query = resolved.q?.trim() ?? "";
+  const state = resolved.state ?? "";
+  const city = resolved.city ?? "";
+  const service = resolved.service ?? "";
+  const tier = resolved.tier ?? "";
+  const verified = resolved.verified === "1";
+  const sort = resolved.sort ?? "relevance";
+  const page = Math.max(1, parseInt(resolved.page ?? "1", 10) || 1);
 
-    const result = await searchForCompanies({
-      query: query || undefined,
-      state: state || undefined,
-      city: city || undefined,
-      category: service || undefined,
-      tier: tier || undefined,
-      verified: verified || undefined,
-      sortBy: sort,
-      page,
-    });
+  const result = await searchForCompanies({
+    query: query || undefined,
+    state: state || undefined,
+    city: city || undefined,
+    category: service || undefined,
+    tier: tier || undefined,
+    verified: verified || undefined,
+    sortBy: sort,
+    page,
+  });
 
-    const stateList = US_STATES.map((s) => ({ code: s.code, name: s.name }));
+  const stateList = US_STATES.map((s) => ({ code: s.code, name: s.name }));
 
-    return (
-      <div className="flex min-h-screen flex-col">
-        <Header />
-        <main className="flex-1">
-          {/* Breadcrumb */}
-          <nav
-            aria-label="Breadcrumb"
-            className="border-b border-gray-100 bg-white"
-          >
-            <div className="mx-auto max-w-7xl px-4 py-3 sm:px-6 lg:px-8">
-              <ol className="flex items-center gap-2 text-sm">
-                <li>
-                  <a
-                    href="/"
-                    className="text-gray-500 transition-colors hover:text-forest-700"
-                  >
-                    Home
-                  </a>
-                </li>
-                <li aria-hidden="true" className="text-gray-300">
-                  /
-                </li>
-                <li>
-                  <span
-                    className="font-medium text-forest-800"
-                    aria-current="page"
-                  >
-                    Search
-                  </span>
-                </li>
-              </ol>
-            </div>
-          </nav>
-
-          {/* Hero */}
-          <section className="bg-forest-800 py-10 sm:py-14">
-            <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-              <h1 className="font-heading text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl">
-                Search Aircraft Detailing Companies
-              </h1>
-              <p className="mt-3 text-lg text-forest-200">
-                Find the perfect detailer by name, location, or service
-              </p>
-            </div>
-          </section>
-
-          {/* Content area */}
-          <section className="py-10 sm:py-12">
-            <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-              <Suspense>
-                <SearchShell
-                  states={stateList}
-                  currentQuery={query}
-                  currentState={state}
-                  currentCity={city}
-                  currentService={service}
-                  currentTier={tier}
-                  currentVerified={verified}
-                  currentSort={sort}
-                  currentPage={page}
-                  totalPages={result.total_pages}
-                  totalCompanies={result.total}
+  return (
+    <div className="flex min-h-screen flex-col">
+      <Header />
+      <main className="flex-1">
+        {/* Breadcrumb */}
+        <nav
+          aria-label="Breadcrumb"
+          className="border-b border-gray-100 bg-white"
+        >
+          <div className="mx-auto max-w-7xl px-4 py-3 sm:px-6 lg:px-8">
+            <ol className="flex items-center gap-2 text-sm">
+              <li>
+                <a
+                  href="/"
+                  className="text-gray-500 transition-colors hover:text-forest-700"
                 >
-                  {result.companies.map((company) => (
-                    <CompanyListingCard key={company.id} company={company} />
-                  ))}
-                </SearchShell>
-              </Suspense>
-            </div>
-          </section>
-        </main>
-        <Footer />
-      </div>
-    );
-  } catch (e: unknown) {
-    const msg = e instanceof Error ? `${e.message}\n${e.stack}` : String(e);
-    return (
-      <div style={{ padding: 40, fontFamily: "monospace", whiteSpace: "pre-wrap" }}>
-        <h1>Search Page Error</h1>
-        <pre>{msg}</pre>
-      </div>
-    );
-  }
+                  Home
+                </a>
+              </li>
+              <li aria-hidden="true" className="text-gray-300">
+                /
+              </li>
+              <li>
+                <span
+                  className="font-medium text-forest-800"
+                  aria-current="page"
+                >
+                  Search
+                </span>
+              </li>
+            </ol>
+          </div>
+        </nav>
+
+        {/* Hero */}
+        <section className="bg-forest-800 py-10 sm:py-14">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <h1 className="font-heading text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl">
+              Search Aircraft Detailing Companies
+            </h1>
+            <p className="mt-3 text-lg text-forest-200">
+              Find the perfect detailer by name, location, or service
+            </p>
+          </div>
+        </section>
+
+        {/* Content area */}
+        <section className="py-10 sm:py-12">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <Suspense>
+              <SearchShell
+                states={stateList}
+                currentQuery={query}
+                currentState={state}
+                currentCity={city}
+                currentService={service}
+                currentTier={tier}
+                currentVerified={verified}
+                currentSort={sort}
+                currentPage={page}
+                totalPages={result.total_pages}
+                totalCompanies={result.total}
+              >
+                {result.companies.map((company) => (
+                  <CompanyListingCard key={company.id} company={company} />
+                ))}
+              </SearchShell>
+            </Suspense>
+          </div>
+        </section>
+      </main>
+      <Footer />
+    </div>
+  );
 }
