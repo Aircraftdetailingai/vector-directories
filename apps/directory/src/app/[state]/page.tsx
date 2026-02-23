@@ -1,4 +1,5 @@
 import { Suspense } from "react";
+import dynamic from "next/dynamic";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import type { Company, SearchResult } from "@vector/types";
@@ -7,7 +8,11 @@ import { Footer } from "../components/footer";
 import { getStateBySlug, US_STATES } from "@/lib/us-states";
 import { Breadcrumb } from "./components/breadcrumb";
 import { CompanyListingCard } from "./components/company-listing-card";
-import { StateListingShell } from "./components/state-listing-shell";
+
+const StateListingShell = dynamic(
+  () => import("./components/state-listing-shell").then((m) => m.StateListingShell),
+  { ssr: false },
+);
 
 /* ──────────────────────────────────────────────────────────────────────────
    Seed data  — used when Supabase is not configured (local dev)

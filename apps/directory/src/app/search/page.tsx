@@ -1,11 +1,16 @@
 import { Suspense } from "react";
+import dynamic from "next/dynamic";
 import type { Metadata } from "next";
 import type { Company, SearchResult } from "@vector/types";
 import { Header } from "../components/header";
 import { Footer } from "../components/footer";
 import { US_STATES } from "@/lib/us-states";
 import { CompanyListingCard } from "../[state]/components/company-listing-card";
-import { SearchShell } from "./components/search-shell";
+
+const SearchShell = dynamic(
+  () => import("./components/search-shell").then((m) => m.SearchShell),
+  { ssr: false },
+);
 
 /* ──────────────────────────────────────────────────────────────────────────
    Seed data — used when Supabase is not configured (local dev)

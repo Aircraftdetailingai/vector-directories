@@ -1,4 +1,5 @@
 import { Suspense } from "react";
+import dynamic from "next/dynamic";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import type { Company, SearchResult } from "@vector/types";
@@ -13,7 +14,11 @@ import {
 } from "@/lib/city-airports";
 import { CompanyListingCard } from "../../[state]/components/company-listing-card";
 import { AirportBreadcrumb } from "./components/airport-breadcrumb";
-import { AirportListingShell } from "./components/airport-listing-shell";
+
+const AirportListingShell = dynamic(
+  () => import("./components/airport-listing-shell").then((m) => m.AirportListingShell),
+  { ssr: false },
+);
 
 /* ──────────────────────────────────────────────────────────────────────────
    Seed data — used when Supabase is not configured (local dev)
