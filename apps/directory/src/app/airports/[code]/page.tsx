@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import type { Company, SearchResult } from "@vector/types";
@@ -293,16 +294,18 @@ export default async function AirportPage({
         {/* Company listings */}
         <section className="py-10 sm:py-12">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <AirportListingShell
-              currentSort={sort}
-              currentPage={page}
-              totalPages={result.total_pages}
-              totalCompanies={result.total}
-            >
-              {result.companies.map((company) => (
-                <CompanyListingCard key={company.id} company={company} />
-              ))}
-            </AirportListingShell>
+            <Suspense>
+              <AirportListingShell
+                currentSort={sort}
+                currentPage={page}
+                totalPages={result.total_pages}
+                totalCompanies={result.total}
+              >
+                {result.companies.map((company) => (
+                  <CompanyListingCard key={company.id} company={company} />
+                ))}
+              </AirportListingShell>
+            </Suspense>
           </div>
         </section>
       </main>

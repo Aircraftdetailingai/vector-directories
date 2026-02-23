@@ -4,7 +4,6 @@ import Link from "next/link";
 import { useState } from "react";
 
 const NAV_LINKS = [
-  { href: "/browse/state", label: "Browse by State" },
   { href: "/airports", label: "Browse by Airport" },
   { href: "/a-z", label: "A-Z Index" },
   { href: "/search", label: "Search" },

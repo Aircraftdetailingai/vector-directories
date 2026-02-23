@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import type { Metadata } from "next";
 import type { Company, SearchResult } from "@vector/types";
 import { Header } from "../components/header";
@@ -315,23 +316,25 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
         {/* Content area */}
         <section className="py-10 sm:py-12">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <SearchShell
-              states={stateList}
-              currentQuery={query}
-              currentState={state}
-              currentCity={city}
-              currentService={service}
-              currentTier={tier}
-              currentVerified={verified}
-              currentSort={sort}
-              currentPage={page}
-              totalPages={result.total_pages}
-              totalCompanies={result.total}
-            >
-              {result.companies.map((company) => (
-                <CompanyListingCard key={company.id} company={company} />
-              ))}
-            </SearchShell>
+            <Suspense>
+              <SearchShell
+                states={stateList}
+                currentQuery={query}
+                currentState={state}
+                currentCity={city}
+                currentService={service}
+                currentTier={tier}
+                currentVerified={verified}
+                currentSort={sort}
+                currentPage={page}
+                totalPages={result.total_pages}
+                totalCompanies={result.total}
+              >
+                {result.companies.map((company) => (
+                  <CompanyListingCard key={company.id} company={company} />
+                ))}
+              </SearchShell>
+            </Suspense>
           </div>
         </section>
       </main>

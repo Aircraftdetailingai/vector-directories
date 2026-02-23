@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import type { Metadata } from "next";
 import { Header } from "../components/header";
 import { Footer } from "../components/footer";
@@ -182,20 +183,22 @@ export default async function ShopPage({ searchParams }: ShopPageProps) {
     <div className="flex min-h-screen flex-col font-sans">
       <Header />
       <main className="flex-1">
-        <ShopShell
-          products={productResult.products}
-          brands={brands}
-          categories={categories}
-          total={productResult.total}
-          page={productResult.page}
-          totalPages={productResult.totalPages}
-          currentBrand={brandSlug}
-          currentCategory={categorySlug}
-          currentMinPrice={minPrice}
-          currentMaxPrice={maxPrice}
-          currentSort={sortBy}
-          currentQuery={query}
-        />
+        <Suspense>
+          <ShopShell
+            products={productResult.products}
+            brands={brands}
+            categories={categories}
+            total={productResult.total}
+            page={productResult.page}
+            totalPages={productResult.totalPages}
+            currentBrand={brandSlug}
+            currentCategory={categorySlug}
+            currentMinPrice={minPrice}
+            currentMaxPrice={maxPrice}
+            currentSort={sortBy}
+            currentQuery={query}
+          />
+        </Suspense>
       </main>
       <Footer />
     </div>

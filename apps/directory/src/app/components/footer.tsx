@@ -2,18 +2,14 @@ import Link from "next/link";
 
 const FOOTER_NAV = {
   Directory: [
-    { label: "Browse by State", href: "/browse/state" },
-    { label: "Browse by Airport", href: "/browse/airport" },
-    { label: "A-Z Index", href: "/browse/a-z" },
+    { label: "Browse by Airport", href: "/airports" },
+    { label: "A-Z Index", href: "/a-z" },
     { label: "Search", href: "/search" },
   ],
   "For Businesses": [
     { label: "Claim Your Listing", href: "/claim" },
-    { label: "Pricing", href: "/pricing" },
-    { label: "Advertise", href: "/advertise" },
   ],
   Company: [
-    { label: "About", href: "/about" },
     { label: "Contact", href: "/contact" },
     { label: "Privacy Policy", href: "/privacy" },
     { label: "Terms of Service", href: "/terms" },

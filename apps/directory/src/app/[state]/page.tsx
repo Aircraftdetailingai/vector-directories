@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import type { Company, SearchResult } from "@vector/types";
@@ -268,21 +269,23 @@ export default async function StatePage({
         {/* Content area */}
         <section className="py-10 sm:py-12">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <StateListingShell
-              stateSlug={stateInfo.slug}
-              cities={cities}
-              categories={SERVICE_CATEGORIES}
-              currentCity={city}
-              currentService={service}
-              currentSort={sort}
-              currentPage={page}
-              totalPages={result.total_pages}
-              totalCompanies={result.total}
-            >
-              {result.companies.map((company) => (
-                <CompanyListingCard key={company.id} company={company} />
-              ))}
-            </StateListingShell>
+            <Suspense>
+              <StateListingShell
+                stateSlug={stateInfo.slug}
+                cities={cities}
+                categories={SERVICE_CATEGORIES}
+                currentCity={city}
+                currentService={service}
+                currentSort={sort}
+                currentPage={page}
+                totalPages={result.total_pages}
+                totalCompanies={result.total}
+              >
+                {result.companies.map((company) => (
+                  <CompanyListingCard key={company.id} company={company} />
+                ))}
+              </StateListingShell>
+            </Suspense>
           </div>
         </section>
       </main>
