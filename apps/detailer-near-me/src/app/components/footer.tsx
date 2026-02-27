@@ -70,7 +70,7 @@ export default function Footer() {
             </h3>
             <ul className="mt-4 space-y-2">
               <li>
-                <Link href="/claim" className="text-sm text-brand-200 transition-colors hover:text-white">
+                <Link href="/search" className="text-sm text-brand-200 transition-colors hover:text-white">
                   List Your Business
                 </Link>
               </li>
@@ -99,7 +99,7 @@ export default function Footer() {
             </h3>
             <ul className="mt-4 space-y-2">
               <li>
-                <Link href="/about" className="text-sm text-brand-200 transition-colors hover:text-white">
+                <Link href="/contact" className="text-sm text-brand-200 transition-colors hover:text-white">
                   About Us
                 </Link>
               </li>

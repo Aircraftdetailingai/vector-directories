@@ -66,7 +66,7 @@ export default function Header() {
             </Link>
           ))}
           <Link
-            href="/claim"
+            href="/search"
             className="ml-2 inline-flex items-center rounded px-4 py-2 text-sm font-semibold bg-gold-500 hover:bg-gold-600 text-navy-900 transition-colors shadow-sm"
           >
             Claim Listing
@@ -114,7 +114,7 @@ export default function Header() {
               </Link>
             ))}
             <Link
-              href="/claim"
+              href="/search"
               onClick={() => setMobileOpen(false)}
               className="mt-2 inline-flex items-center justify-center rounded px-4 py-2.5 text-sm font-semibold bg-gold-500 hover:bg-gold-600 text-navy-900 transition-colors"
             >

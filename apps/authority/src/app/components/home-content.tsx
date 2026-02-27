@@ -55,7 +55,7 @@ function HeroSection() {
             View Rankings
           </Link>
           <Link
-            href="/claim"
+            href="/search"
             className="inline-flex items-center rounded px-7 py-3 text-sm font-semibold border-2 border-navy-400 text-navy-100 hover:border-gold-400 hover:text-gold-400 transition-colors"
           >
             Submit Your Business

@@ -22,21 +22,21 @@ const COMMUNITY_STORIES = [
     title: "Why Regular Detailing Matters",
     excerpt:
       "Keeping your aircraft clean is about more than looks. Regular detailing protects paint, prevents corrosion, and maintains your investment for years to come. Here are the top reasons to schedule routine care.",
-    href: "/community/regular-detailing",
+    href: "#",
     tag: "Care Tips",
   },
   {
     title: "Spotlight: The Art of Ceramic Coating",
     excerpt:
       "Ceramic coating has transformed how we protect aircraft surfaces. Learn about the process, benefits, and what to look for when choosing a ceramic coating professional.",
-    href: "/community/ceramic-coating-art",
+    href: "#",
     tag: "Techniques",
   },
   {
     title: "Community Picks: Best New Detailers of 2025",
     excerpt:
       "Our community has spoken! These up-and-coming detailers are making waves with outstanding service, innovative techniques, and genuine care for their clients.",
-    href: "/community/best-new-detailers-2025",
+    href: "#",
     tag: "Community Picks",
   },
 ];
@@ -106,7 +106,7 @@ export default function HomeContent({ companies }: HomeContentProps) {
               </svg>
             </Link>
             <Link
-              href="/claim"
+              href="/search"
               className="inline-flex items-center gap-2 bg-coral-400 hover:bg-coral-500 text-white font-heading font-bold px-8 py-3.5 rounded-full transition-colors shadow-lg text-base"
             >
               Claim Your Listing
@@ -330,7 +330,7 @@ export default function HomeContent({ companies }: HomeContentProps) {
               </svg>
             </Link>
             <Link
-              href="/claim"
+              href="/search"
               className="inline-flex items-center gap-2 bg-teal-700 hover:bg-teal-800 text-white font-heading font-bold px-8 py-3.5 rounded-full transition-colors shadow-lg text-base"
             >
               List Your Business

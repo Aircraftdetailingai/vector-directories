@@ -71,7 +71,7 @@ export default function Footer() {
             <ul className="space-y-2">
               <li>
                 <Link
-                  href="/claim"
+                  href="/search"
                   className="text-sm text-gray-400 hover:text-sky-400 transition-colors"
                 >
                   Claim Listing
@@ -79,7 +79,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="/claim"
+                  href="/search"
                   className="text-sm text-gray-400 hover:text-sky-400 transition-colors"
                 >
                   Pricing
@@ -96,7 +96,7 @@ export default function Footer() {
             <ul className="space-y-2">
               <li>
                 <Link
-                  href="/about"
+                  href="/contact"
                   className="text-sm text-gray-400 hover:text-sky-400 transition-colors"
                 >
                   About

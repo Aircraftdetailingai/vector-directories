@@ -1,9 +1,14 @@
+import { redirect } from "next/navigation";
 import Link from "next/link";
 import type { StoreSupplier } from "@/lib/types";
 
 async function getAuthenticatedUser() {
-  const { requireAuth } = await import("@vector/auth");
-  return await requireAuth();
+  try {
+    const { requireAuth } = await import("@vector/auth");
+    return await requireAuth();
+  } catch {
+    redirect("/");
+  }
 }
 
 async function fetchSupplier(userId: string): Promise<StoreSupplier | null> {

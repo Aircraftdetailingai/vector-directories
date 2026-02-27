@@ -32,7 +32,7 @@ export function FeaturedDetailers({ companies }: FeaturedDetailersProps) {
             </p>
           </div>
           <Link
-            href="/browse/a-z"
+            href="/a-z"
             className="hidden text-sm font-semibold text-forest-700 hover:text-forest-600 sm:block"
           >
             View all &rarr;
@@ -112,7 +112,7 @@ export function FeaturedDetailers({ companies }: FeaturedDetailersProps) {
 
         <div className="mt-8 text-center sm:hidden">
           <Link
-            href="/browse/a-z"
+            href="/a-z"
             className="text-sm font-semibold text-forest-700 hover:text-forest-600"
           >
             View all detailers &rarr;

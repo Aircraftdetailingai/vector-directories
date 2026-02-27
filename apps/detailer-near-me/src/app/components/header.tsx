@@ -54,7 +54,7 @@ export default function Header() {
             Search
           </Link>
           <Link
-            href="/claim"
+            href="/search"
             className="rounded-xl bg-brand-500 px-4 py-2 font-body text-sm font-semibold text-white transition-colors hover:bg-brand-600"
           >
             List Your Business
@@ -106,7 +106,7 @@ export default function Header() {
               Search
             </Link>
             <Link
-              href="/claim"
+              href="/search"
               className="mt-1 rounded-xl bg-brand-500 px-3 py-2 text-center font-body text-sm font-semibold text-white hover:bg-brand-600"
               onClick={() => setMobileOpen(false)}
             >

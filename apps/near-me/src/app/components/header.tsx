@@ -47,7 +47,7 @@ export default function Header() {
               </Link>
             ))}
             <Link
-              href="/claim"
+              href="/search"
               className="bg-sky-500 hover:bg-sky-600 text-white rounded-full px-4 py-2 text-sm font-medium transition-colors"
             >
               Claim Listing
@@ -109,7 +109,7 @@ export default function Header() {
               </Link>
             ))}
             <Link
-              href="/claim"
+              href="/search"
               className="inline-block bg-sky-500 hover:bg-sky-600 text-white rounded-full px-4 py-2 text-sm font-medium transition-colors"
               onClick={() => setMobileOpen(false)}
             >

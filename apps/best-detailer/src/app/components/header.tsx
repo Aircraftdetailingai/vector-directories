@@ -34,7 +34,7 @@ export default function Header() {
             </Link>
           ))}
           <Link
-            href="/claim"
+            href="/search"
             className="ml-2 border border-gold-500 text-gold-500 hover:bg-gold-500 hover:text-noir-900 px-4 py-2 text-xs tracking-widest uppercase transition-colors"
           >
             List Your Business
@@ -82,7 +82,7 @@ export default function Header() {
               </Link>
             ))}
             <Link
-              href="/claim"
+              href="/search"
               onClick={() => setMobileOpen(false)}
               className="mt-2 inline-flex items-center justify-center border border-gold-500 text-gold-500 hover:bg-gold-500 hover:text-noir-900 px-4 py-2.5 text-xs tracking-widest uppercase transition-colors"
             >

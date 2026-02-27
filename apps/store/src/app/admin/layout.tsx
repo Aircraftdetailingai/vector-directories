@@ -1,8 +1,14 @@
+import { redirect } from "next/navigation";
 import { AdminSidebar } from "./components/admin-sidebar";
 
 async function getAuthenticatedAdmin() {
-  const { requireAuth } = await import("@vector/auth");
-  const user = await requireAuth();
+  let user;
+  try {
+    const { requireAuth } = await import("@vector/auth");
+    user = await requireAuth();
+  } catch {
+    redirect("/");
+  }
 
   try {
     const { createBrowserClient } = await import("@vector/db");

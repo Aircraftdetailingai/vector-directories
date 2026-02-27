@@ -269,7 +269,7 @@ export default async function HomePage() {
               directory of elite professionals.
             </p>
             <Link
-              href="/claim"
+              href="/search"
               className="mt-10 inline-flex items-center bg-gold-500 hover:bg-gold-600 text-noir-900 px-8 py-3 text-sm font-semibold tracking-widest uppercase transition-colors"
             >
               Claim Your Listing

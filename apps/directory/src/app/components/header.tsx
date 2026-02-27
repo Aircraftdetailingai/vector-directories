@@ -57,7 +57,7 @@ export function Header() {
             </Link>
           ))}
           <Link
-            href="/claim"
+            href="/search"
             className="ml-2 rounded-lg bg-forest-800 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-forest-700"
           >
             Claim Listing
@@ -98,7 +98,7 @@ export function Header() {
             </Link>
           ))}
           <Link
-            href="/claim"
+            href="/search"
             className="mt-2 block rounded-lg bg-forest-800 px-4 py-2.5 text-center text-sm font-semibold text-white hover:bg-forest-700"
             onClick={() => setMobileOpen(false)}
           >
