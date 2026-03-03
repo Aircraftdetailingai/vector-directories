@@ -8,6 +8,7 @@ const FOOTER_NAV = {
   ],
   "For Businesses": [
     { label: "Claim Your Listing", href: "/search" },
+    { label: "Advertise With Us", href: "/advertise" },
   ],
   Company: [
     { label: "Contact", href: "/contact" },

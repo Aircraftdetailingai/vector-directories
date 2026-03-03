@@ -126,6 +126,14 @@ export default function Footer() {
                   Pricing
                 </Link>
               </li>
+              <li>
+                <Link
+                  href="/advertise"
+                  className="text-sm text-slate-500 hover:text-slate-300 transition-colors"
+                >
+                  Advertise With Us
+                </Link>
+              </li>
             </ul>
             <h3 className="text-white font-heading font-semibold text-sm uppercase tracking-wider mb-4 mt-6">
               Legal

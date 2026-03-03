@@ -54,6 +54,12 @@ export default function Header() {
             Search
           </Link>
           <Link
+            href="/advertise"
+            className="font-body text-sm font-medium text-gray-600 transition-colors hover:text-brand-500"
+          >
+            Advertise
+          </Link>
+          <Link
             href="/search"
             className="rounded-xl bg-brand-500 px-4 py-2 font-body text-sm font-semibold text-white transition-colors hover:bg-brand-600"
           >
@@ -104,6 +110,13 @@ export default function Header() {
               onClick={() => setMobileOpen(false)}
             >
               Search
+            </Link>
+            <Link
+              href="/advertise"
+              className="rounded-xl px-3 py-2 font-body text-sm font-medium text-gray-600 hover:bg-brand-50 hover:text-brand-500"
+              onClick={() => setMobileOpen(false)}
+            >
+              Advertise
             </Link>
             <Link
               href="/search"

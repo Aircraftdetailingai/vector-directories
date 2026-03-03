@@ -7,6 +7,7 @@ const NAV_LINKS = [
   { href: "/airports", label: "Browse by Airport" },
   { href: "/a-z", label: "A-Z Index" },
   { href: "/search", label: "Search" },
+  { href: "/advertise", label: "Advertise" },
 ] as const;
 
 export function Header() {

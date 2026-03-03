@@ -7,6 +7,7 @@ const navLinks = [
   { href: "/", label: "Network" },
   { href: "/specializations/private-jets", label: "Specializations" },
   { href: "/search", label: "Search" },
+  { href: "/advertise", label: "Advertise" },
 ];
 
 export default function Header() {

@@ -9,6 +9,7 @@ const RANKINGS_LINKS = [
 const BUSINESS_LINKS = [
   { label: "Claim Listing", href: "/claim" },
   { label: "Pricing", href: "/pricing" },
+  { label: "Advertise With Us", href: "/advertise" },
   { label: "Methodology", href: "#methodology" },
 ];
 

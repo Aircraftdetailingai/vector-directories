@@ -10,6 +10,7 @@ const COLLECTION_LINKS = [
 const DETAILER_LINKS = [
   { label: "Claim Listing", href: "/claim" },
   { label: "Pricing", href: "/pricing" },
+  { label: "Advertise With Us", href: "/advertise" },
   { label: "Dashboard", href: "/dashboard" },
 ];
 

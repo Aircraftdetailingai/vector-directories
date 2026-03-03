@@ -85,6 +85,14 @@ export default function Footer() {
                   Pricing
                 </Link>
               </li>
+              <li>
+                <Link
+                  href="/advertise"
+                  className="text-sm text-gray-400 hover:text-sky-400 transition-colors"
+                >
+                  Advertise With Us
+                </Link>
+              </li>
             </ul>
           </div>
 

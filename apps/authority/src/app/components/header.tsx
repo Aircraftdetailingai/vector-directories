@@ -8,6 +8,7 @@ const NAV_LINKS = [
   { label: "Regions", href: "/regions/northeast" },
   { label: "Search", href: "/search" },
   { label: "Industry Insights", href: "#insights" },
+  { label: "Advertise", href: "/advertise" },
 ];
 
 export default function Header() {

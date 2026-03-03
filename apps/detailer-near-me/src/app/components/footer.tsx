@@ -89,6 +89,11 @@ export default function Footer() {
                   Upgrade Plan
                 </Link>
               </li>
+              <li>
+                <Link href="/advertise" className="text-sm text-brand-200 transition-colors hover:text-white">
+                  Advertise With Us
+                </Link>
+              </li>
             </ul>
           </div>
 

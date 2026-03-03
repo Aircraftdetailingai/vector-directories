@@ -13,6 +13,7 @@ const shopLinks = [
 const resourceLinks = [
   { label: "Training", href: "/training" },
   { label: "Directories", href: "/directories" },
+  { label: "Advertise With Us", href: "/advertise" },
   { label: "Supplier Portal", href: "/supplier" },
 ];
 

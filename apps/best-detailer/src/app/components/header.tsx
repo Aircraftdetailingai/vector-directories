@@ -7,6 +7,7 @@ const NAV_LINKS = [
   { label: "Collections", href: "/collections/editors-choice-2025" },
   { label: "Awards", href: "/awards" },
   { label: "Search", href: "/search" },
+  { label: "Advertise", href: "/advertise" },
 ];
 
 export default function Header() {

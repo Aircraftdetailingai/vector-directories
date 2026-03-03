@@ -7,6 +7,7 @@ const navLinks = [
   { href: "/", label: "Find Near Me" },
   { href: "/airports", label: "Browse Airports" },
   { href: "/search", label: "Search" },
+  { href: "/advertise", label: "Advertise" },
 ];
 
 export default function Header() {
