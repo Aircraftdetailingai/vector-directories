@@ -43,6 +43,13 @@ export function Header() {
             Supplier Portal
           </Link>
 
+          <Link
+            href="/login"
+            className="text-xs font-medium text-navy-300 transition-colors hover:text-white"
+          >
+            Sign In
+          </Link>
+
           <CartProvider>
             <CartIcon />
           </CartProvider>
@@ -117,6 +124,13 @@ export function Header() {
               className="rounded-md px-3 py-2 text-xs font-medium text-navy-300 hover:bg-navy-800 hover:text-white"
             >
               Supplier Portal
+            </Link>
+            <Link
+              href="/login"
+              onClick={() => setMobileOpen(false)}
+              className="rounded-md px-3 py-2 text-xs font-medium text-navy-300 hover:bg-navy-800 hover:text-white"
+            >
+              Sign In
             </Link>
           </div>
         </nav>

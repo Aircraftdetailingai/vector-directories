@@ -7,7 +7,7 @@ async function getAuthenticatedAdmin() {
     const { requireAuth } = await import("@vector/auth");
     user = await requireAuth();
   } catch {
-    redirect("/");
+    redirect("/login?redirect=/admin");
   }
 
   try {

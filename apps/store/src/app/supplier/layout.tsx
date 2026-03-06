@@ -7,7 +7,7 @@ async function getAuthenticatedUser() {
     const { requireAuth } = await import("@vector/auth");
     return await requireAuth();
   } catch {
-    redirect("/");
+    redirect("/supplier/login");
   }
 }
 
