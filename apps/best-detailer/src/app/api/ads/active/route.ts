@@ -16,6 +16,10 @@ export async function GET(request: NextRequest) {
       .eq("site_key", SITE_KEY)
       .eq("status", "active");
 
+    if (placement) {
+      query = query.eq("placement_id", placement);
+    }
+
     const { data, error } = await query;
     if (error) throw error;
 
