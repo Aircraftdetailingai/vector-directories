@@ -23,7 +23,6 @@ async function getBrandBySlug(slug: string): Promise<StoreBrand | null> {
 
 async function getProductsForBrand(
   brandId: string,
-  brandSlug: string,
 ): Promise<{ products: StoreProduct[]; total: number }> {
   try {
     const { createBrowserClient } = await import("@vector/db");
@@ -62,7 +61,7 @@ export default async function BrandPage({ params }: BrandPageProps) {
     notFound();
   }
 
-  const { products, total } = await getProductsForBrand(brand.id, brand.slug);
+  const { products, total } = await getProductsForBrand(brand.id);
 
   return (
     <div className="flex min-h-screen flex-col font-sans">

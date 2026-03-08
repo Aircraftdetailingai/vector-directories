@@ -26,7 +26,6 @@ async function getCategoryBySlug(
 
 async function getProductsForCategory(
   categoryId: string,
-  categorySlug: string,
 ): Promise<{ products: StoreProduct[]; total: number }> {
   try {
     const { createBrowserClient } = await import("@vector/db");
@@ -65,10 +64,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
     notFound();
   }
 
-  const { products, total } = await getProductsForCategory(
-    category.id,
-    category.slug,
-  );
+  const { products, total } = await getProductsForCategory(category.id);
 
   return (
     <div className="flex min-h-screen flex-col font-sans">
