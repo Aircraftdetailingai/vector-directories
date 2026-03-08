@@ -1,5 +1,5 @@
 import { ProductForm } from "./components/product-form";
-import { SEED_BRANDS, SEED_CATEGORIES } from "@/lib/seed-data";
+import { SEED_CATEGORIES } from "@/lib/seed-data";
 import type { StoreBrand, StoreCategory } from "@/lib/types";
 
 async function fetchFormData(): Promise<{
@@ -29,7 +29,7 @@ async function fetchFormData(): Promise<{
     };
   } catch {
     return {
-      brands: SEED_BRANDS,
+      brands: [],
       categories: SEED_CATEGORIES,
       supplierId: "s1",
     };

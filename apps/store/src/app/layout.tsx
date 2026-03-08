@@ -11,7 +11,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "Aircraft Detailing 101 | Professional Detailing Products & Supplies",
   description:
-    "Shop professional aircraft detailing products from top brands like Fly Shiny, Autofiber, Nuvite, and SkyGlide. Polishes, ceramic coatings, towels, cleaners, tools, and complete kits.",
+    "Shop professional aircraft detailing products. Polishes, ceramic coatings, towels, cleaners, tools, and complete kits from verified suppliers.",
 };
 
 export default function RootLayout({

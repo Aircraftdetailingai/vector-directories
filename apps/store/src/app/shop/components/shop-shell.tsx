@@ -370,18 +370,29 @@ export function ShopShell({
                   />
                 </svg>
                 <h3 className="mt-4 text-lg font-semibold text-navy-900">
-                  No products found
+                  {hasActiveFilters ? "No products found" : "Products coming soon"}
                 </h3>
                 <p className="mt-2 text-sm text-gray-500">
-                  Try adjusting your filters or search terms.
+                  {hasActiveFilters
+                    ? "Try adjusting your filters or search terms."
+                    : "Are you a supplier? Join our marketplace and start selling to aircraft detailing professionals."}
                 </p>
-                <button
-                  type="button"
-                  onClick={clearAllFilters}
-                  className="mt-4 rounded-md bg-blue-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-blue-700"
-                >
-                  Clear Filters
-                </button>
+                {hasActiveFilters ? (
+                  <button
+                    type="button"
+                    onClick={clearAllFilters}
+                    className="mt-4 rounded-md bg-blue-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-blue-700"
+                  >
+                    Clear Filters
+                  </button>
+                ) : (
+                  <Link
+                    href="/supplier/login"
+                    className="mt-4 inline-flex rounded-md bg-orange-500 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-orange-600"
+                  >
+                    Become a Supplier
+                  </Link>
+                )}
               </div>
             ) : (
               <>

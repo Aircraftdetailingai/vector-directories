@@ -1,6 +1,5 @@
 import Link from "next/link";
 import type { StoreProduct } from "@/lib/types";
-import { SEED_PRODUCTS } from "@/lib/seed-data";
 
 async function fetchSupplierProducts(): Promise<StoreProduct[]> {
   try {
@@ -16,7 +15,7 @@ async function fetchSupplierProducts(): Promise<StoreProduct[]> {
     const { products } = await getSupplierProducts(client, supplier.id);
     return products;
   } catch {
-    return SEED_PRODUCTS;
+    return [];
   }
 }
 

@@ -5,7 +5,6 @@ import { Header } from "../../../components/header";
 import { Footer } from "../../../components/footer";
 import { ProductCard } from "../../../components/product-card";
 import type { StoreBrand, StoreProduct } from "@/lib/types";
-import { SEED_BRANDS, SEED_PRODUCTS } from "@/lib/seed-data";
 
 interface BrandPageProps {
   params: Promise<{ slug: string }>;
@@ -18,7 +17,7 @@ async function getBrandBySlug(slug: string): Promise<StoreBrand | null> {
     const client = createBrowserClient();
     return await getBrandBySlug(client, slug);
   } catch {
-    return SEED_BRANDS.find((b) => b.slug === slug) ?? null;
+    return null;
   }
 }
 
@@ -33,10 +32,7 @@ async function getProductsForBrand(
     const result = await getProductsByBrand(client, brandId);
     return { products: result.products, total: result.total };
   } catch {
-    const products = SEED_PRODUCTS.filter(
-      (p) => p.brand?.slug === brandSlug && p.status === "active",
-    );
-    return { products, total: products.length };
+    return { products: [], total: 0 };
   }
 }
 
@@ -116,10 +112,10 @@ export default async function BrandPage({ params }: BrandPageProps) {
             {products.length === 0 ? (
               <div className="flex flex-col items-center justify-center py-20 text-center">
                 <h3 className="text-lg font-semibold text-navy-900">
-                  No products available
+                  Products coming soon
                 </h3>
                 <p className="mt-2 text-sm text-gray-500">
-                  Check back soon for new {brand.name} products.
+                  Check back soon for {brand.name} products.
                 </p>
                 <Link
                   href="/shop"

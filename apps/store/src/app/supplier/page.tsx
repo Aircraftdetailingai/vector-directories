@@ -1,6 +1,5 @@
 import Link from "next/link";
 import type { StoreSupplier, StoreOrder, StoreProduct } from "@/lib/types";
-import { SEED_PRODUCTS } from "@/lib/seed-data";
 
 async function getSupplierData(): Promise<{
   supplier: StoreSupplier;
@@ -27,24 +26,23 @@ async function getSupplierData(): Promise<{
 
     return { supplier, products, orders, revenue };
   } catch {
-    // Seed data fallback
     return {
       supplier: {
-        id: "s1",
-        user_id: "u1",
-        company_name: "Demo Supplier",
-        slug: "demo-supplier",
-        contact_email: "demo@example.com",
+        id: "",
+        user_id: "",
+        company_name: "Your Company",
+        slug: "",
+        contact_email: "",
         phone: null,
         logo_url: null,
         description: null,
         stripe_connect_id: null,
-        is_approved: true,
+        is_approved: false,
         commission_rate: 0.15,
         created_at: new Date().toISOString(),
         updated_at: new Date().toISOString(),
       },
-      products: SEED_PRODUCTS,
+      products: [],
       orders: [],
       revenue: 0,
     };

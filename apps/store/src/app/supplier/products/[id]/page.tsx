@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import { ProductForm } from "../new/components/product-form";
-import { SEED_BRANDS, SEED_CATEGORIES, SEED_PRODUCTS } from "@/lib/seed-data";
+import { SEED_CATEGORIES } from "@/lib/seed-data";
 import type { StoreBrand, StoreCategory, StoreProduct } from "@/lib/types";
 
 interface EditProductPageProps {
@@ -43,13 +43,11 @@ async function fetchProductData(productId: string): Promise<{
       supplierId: supplier?.id ?? "s1",
     };
   } catch {
-    const product =
-      SEED_PRODUCTS.find((p) => p.id === productId) ?? null;
     return {
-      product,
-      brands: SEED_BRANDS,
+      product: null,
+      brands: [],
       categories: SEED_CATEGORIES,
-      supplierId: "s1",
+      supplierId: "",
     };
   }
 }

@@ -60,6 +60,31 @@ function FeaturedProductsSection({
 }: {
   products: StoreProduct[];
 }) {
+  if (products.length === 0) {
+    return (
+      <section className="bg-white py-16 sm:py-20">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="text-center">
+            <h2 className="text-3xl font-bold text-navy-900 sm:text-4xl">
+              Featured Products
+            </h2>
+            <p className="mx-auto mt-4 max-w-xl text-gray-500">
+              Products coming soon. Are you a supplier? Join our marketplace and
+              start selling to aircraft detailing professionals.
+            </p>
+            <Link
+              href="/supplier/login"
+              className="mt-6 inline-flex items-center rounded-lg bg-orange-500 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-orange-500/20 transition-colors hover:bg-orange-600"
+            >
+              Become a Supplier
+              <span className="ml-1">&rarr;</span>
+            </Link>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
   return (
     <section className="bg-white py-16 sm:py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -97,6 +122,10 @@ function FeaturedProductsSection({
    --------------------------------------------------------------------------- */
 
 function BrandSection({ brands }: { brands: StoreBrand[] }) {
+  if (brands.length === 0) {
+    return null;
+  }
+
   const displayBrands = brands.slice(0, 4);
 
   return (

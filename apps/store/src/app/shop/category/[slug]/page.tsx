@@ -5,7 +5,7 @@ import { Header } from "../../../components/header";
 import { Footer } from "../../../components/footer";
 import { ProductCard } from "../../../components/product-card";
 import type { StoreCategory, StoreProduct } from "@/lib/types";
-import { SEED_CATEGORIES, SEED_PRODUCTS } from "@/lib/seed-data";
+import { SEED_CATEGORIES } from "@/lib/seed-data";
 
 interface CategoryPageProps {
   params: Promise<{ slug: string }>;
@@ -35,10 +35,7 @@ async function getProductsForCategory(
     const result = await getProductsByCategory(client, categoryId);
     return { products: result.products, total: result.total };
   } catch {
-    const products = SEED_PRODUCTS.filter(
-      (p) => p.category?.slug === categorySlug && p.status === "active",
-    );
-    return { products, total: products.length };
+    return { products: [], total: 0 };
   }
 }
 
@@ -121,17 +118,25 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
             {products.length === 0 ? (
               <div className="flex flex-col items-center justify-center py-20 text-center">
                 <h3 className="text-lg font-semibold text-navy-900">
-                  No products available
+                  Products coming soon
                 </h3>
                 <p className="mt-2 text-sm text-gray-500">
-                  Check back soon for new products in {category.name}.
+                  Are you a supplier? Join our marketplace and list your {category.name.toLowerCase()} products.
                 </p>
-                <Link
-                  href="/shop"
-                  className="mt-4 rounded-md bg-blue-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-blue-700"
-                >
-                  Back to Shop
-                </Link>
+                <div className="mt-4 flex gap-3">
+                  <Link
+                    href="/supplier/login"
+                    className="rounded-md bg-orange-500 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-orange-600"
+                  >
+                    Become a Supplier
+                  </Link>
+                  <Link
+                    href="/shop"
+                    className="rounded-md border border-gray-300 px-4 py-2 text-sm font-medium text-navy-900 transition-colors hover:bg-gray-50"
+                  >
+                    Back to Shop
+                  </Link>
+                </div>
               </div>
             ) : (
               <div className="grid grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-4">

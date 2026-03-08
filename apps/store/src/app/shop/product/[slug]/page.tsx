@@ -5,7 +5,6 @@ import { Footer } from "@/app/components/footer";
 import { ProductDetail } from "./components/product-detail";
 import { RelatedProducts } from "./components/related-products";
 import type { StoreProduct } from "@/lib/types";
-import { SEED_PRODUCTS } from "@/lib/seed-data";
 
 interface ProductPageProps {
   params: { slug: string };
@@ -18,7 +17,7 @@ async function fetchProduct(slug: string): Promise<StoreProduct | null> {
     const client = createBrowserClient();
     return await getProductBySlug(client, slug);
   } catch {
-    return SEED_PRODUCTS.find((p) => p.slug === slug) ?? null;
+    return null;
   }
 }
 
@@ -32,9 +31,7 @@ async function fetchRelatedProducts(
     const client = createBrowserClient();
     return await getRelatedProducts(client, productId, categoryId, 4);
   } catch {
-    return SEED_PRODUCTS.filter(
-      (p) => p.id !== productId && p.category_id === categoryId,
-    ).slice(0, 4);
+    return [];
   }
 }
 

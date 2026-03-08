@@ -3,12 +3,12 @@ import { Header } from "./components/header";
 import { Footer } from "./components/footer";
 import { HomeContent } from "./components/home-content";
 import type { StoreProduct, StoreBrand, StoreCategory } from "@/lib/types";
-import { SEED_PRODUCTS, SEED_BRANDS, SEED_CATEGORIES } from "@/lib/seed-data";
+import { SEED_CATEGORIES } from "@/lib/seed-data";
 
 export const metadata: Metadata = {
   title: "Aircraft Detailing 101 | Professional Detailing Products & Supplies",
   description:
-    "Shop professional aircraft detailing products from top brands like Fly Shiny, Autofiber, Nuvite, and SkyGlide. Polishes, ceramic coatings, towels, cleaners, tools, and complete kits.",
+    "Shop professional aircraft detailing products. Polishes, ceramic coatings, towels, cleaners, tools, and complete kits from verified suppliers.",
 };
 
 async function getFeaturedProducts(): Promise<StoreProduct[]> {
@@ -18,7 +18,7 @@ async function getFeaturedProducts(): Promise<StoreProduct[]> {
     const client = createBrowserClient();
     return await getFeaturedProducts(client, 8);
   } catch {
-    return SEED_PRODUCTS.filter((p) => p.is_featured);
+    return [];
   }
 }
 
@@ -29,7 +29,7 @@ async function getBrands(): Promise<StoreBrand[]> {
     const client = createBrowserClient();
     return await getBrands(client);
   } catch {
-    return SEED_BRANDS;
+    return [];
   }
 }
 
