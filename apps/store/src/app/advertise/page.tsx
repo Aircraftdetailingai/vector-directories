@@ -91,12 +91,12 @@ export default function AdvertisePage() {
       <Header />
       <main className="flex-1">
         {/* Hero */}
-        <section className="bg-navy-900 py-16 sm:py-24">
+        <section className="bg-slate-900 py-16 sm:py-24">
           <div className="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
             <h1 className="text-4xl font-bold text-white sm:text-5xl">
               Advertise With Us
             </h1>
-            <p className="mx-auto mt-4 max-w-2xl text-lg text-navy-200">
+            <p className="mx-auto mt-4 max-w-2xl text-lg text-slate-200">
               Reach thousands of aircraft detailing decision-makers every month.
               Place your brand in front of the professionals who matter.
             </p>
@@ -108,7 +108,7 @@ export default function AdvertisePage() {
           <div className="mx-auto grid max-w-4xl grid-cols-1 gap-8 px-4 sm:grid-cols-3 sm:px-6 lg:px-8">
             {STATS.map((stat) => (
               <div key={stat.label} className="text-center">
-                <p className="text-3xl font-bold text-navy-900">
+                <p className="text-3xl font-bold text-slate-900">
                   {stat.value}
                 </p>
                 <p className="mt-1 text-sm text-gray-600">{stat.label}</p>
@@ -120,7 +120,7 @@ export default function AdvertisePage() {
         {/* Placements grid */}
         <section className="bg-gray-50 py-16">
           <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-            <h2 className="text-center text-2xl font-bold text-navy-900">
+            <h2 className="text-center text-2xl font-bold text-slate-900">
               Available Ad Placements
             </h2>
             <p className="mx-auto mt-2 max-w-2xl text-center text-gray-600">
@@ -133,7 +133,7 @@ export default function AdvertisePage() {
                   key={p.type}
                   className="flex flex-col rounded-lg border border-gray-200 bg-white p-6 shadow-sm transition-shadow hover:shadow-md"
                 >
-                  <h3 className="text-lg font-bold text-navy-900">
+                  <h3 className="text-lg font-bold text-slate-900">
                     {p.name}
                   </h3>
                   <p className="mt-1 text-2xl font-bold text-blue-600">
@@ -147,7 +147,7 @@ export default function AdvertisePage() {
                   </p>
                   <Link
                     href={`/advertise/checkout?placement=${p.type}`}
-                    className="mt-6 block rounded-lg bg-navy-900 px-4 py-2.5 text-center text-sm font-semibold text-white transition-colors hover:bg-navy-800"
+                    className="mt-6 block rounded-lg bg-slate-900 px-4 py-2.5 text-center text-sm font-semibold text-white transition-colors hover:bg-slate-800"
                   >
                     Get Started
                   </Link>
@@ -160,7 +160,7 @@ export default function AdvertisePage() {
         {/* FAQ */}
         <section className="bg-white py-16">
           <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
-            <h2 className="text-center text-2xl font-bold text-navy-900">
+            <h2 className="text-center text-2xl font-bold text-slate-900">
               Frequently Asked Questions
             </h2>
             <dl className="mt-10 space-y-8">
@@ -177,18 +177,18 @@ export default function AdvertisePage() {
         </section>
 
         {/* CTA */}
-        <section className="bg-navy-900 py-16">
+        <section className="bg-slate-900 py-16">
           <div className="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
             <h2 className="text-3xl font-bold text-white">
               Ready to Grow Your Business?
             </h2>
-            <p className="mx-auto mt-4 max-w-xl text-navy-300">
+            <p className="mx-auto mt-4 max-w-xl text-slate-300">
               Start advertising today and connect with aircraft detailing
               professionals across the country.
             </p>
             <Link
               href="/advertise/checkout?placement=top_banner"
-              className="mt-8 inline-block rounded-lg bg-white px-8 py-3 text-sm font-semibold text-navy-900 transition-colors hover:bg-gray-100"
+              className="mt-8 inline-block rounded-lg bg-white px-8 py-3 text-sm font-semibold text-slate-900 transition-colors hover:bg-gray-100"
             >
               Get Started Now
             </Link>

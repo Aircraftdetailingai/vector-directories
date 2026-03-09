@@ -16,9 +16,9 @@ interface HomeContentProps {
 
 function HeroSection() {
   return (
-    <section className="relative overflow-hidden bg-navy-900">
+    <section className="relative overflow-hidden bg-slate-900">
       {/* Subtle gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-navy-900 via-navy-900 to-blue-900/40" />
+      <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-900 to-blue-900/40" />
 
       <div className="relative mx-auto max-w-4xl px-4 py-20 sm:py-28 text-center">
         <h1 className="text-4xl font-bold leading-tight tracking-tight text-white sm:text-5xl lg:text-6xl">
@@ -27,7 +27,7 @@ function HeroSection() {
           Detailing Products
         </h1>
 
-        <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-navy-300 sm:text-xl">
+        <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-slate-300 sm:text-xl">
           Top-quality polishes, ceramic coatings, towels, and tools trusted by
           professional aircraft detailers worldwide.
         </p>
@@ -65,7 +65,7 @@ function FeaturedProductsSection({
       <section className="bg-white py-16 sm:py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h2 className="text-3xl font-bold text-navy-900 sm:text-4xl">
+            <h2 className="text-3xl font-bold text-slate-900 sm:text-4xl">
               Featured Products
             </h2>
             <p className="mx-auto mt-4 max-w-xl text-gray-500">
@@ -89,7 +89,7 @@ function FeaturedProductsSection({
     <section className="bg-white py-16 sm:py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center">
-          <h2 className="text-3xl font-bold text-navy-900 sm:text-4xl">
+          <h2 className="text-3xl font-bold text-slate-900 sm:text-4xl">
             Featured Products
           </h2>
           <p className="mx-auto mt-3 max-w-xl text-gray-500">
@@ -132,7 +132,7 @@ function BrandSection({ brands }: { brands: StoreBrand[] }) {
     <section className="bg-gray-50 py-16 sm:py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center">
-          <h2 className="text-3xl font-bold text-navy-900 sm:text-4xl">
+          <h2 className="text-3xl font-bold text-slate-900 sm:text-4xl">
             Shop by Brand
           </h2>
           <p className="mx-auto mt-3 max-w-xl text-gray-500">
@@ -147,7 +147,7 @@ function BrandSection({ brands }: { brands: StoreBrand[] }) {
               href={`/shop/brand/${brand.slug}`}
               className="group rounded-lg border border-gray-200 bg-white p-6 transition-shadow hover:shadow-md"
             >
-              <h3 className="text-lg font-semibold text-navy-900 group-hover:text-blue-600 transition-colors">
+              <h3 className="text-lg font-semibold text-slate-900 group-hover:text-blue-600 transition-colors">
                 {brand.name}
               </h3>
               {brand.description && (
@@ -189,7 +189,7 @@ function CategorySection({ categories }: { categories: StoreCategory[] }) {
     <section className="bg-white py-16 sm:py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center">
-          <h2 className="text-3xl font-bold text-navy-900 sm:text-4xl">
+          <h2 className="text-3xl font-bold text-slate-900 sm:text-4xl">
             Shop by Category
           </h2>
           <p className="mx-auto mt-3 max-w-xl text-gray-500">
@@ -235,7 +235,7 @@ function CategorySection({ categories }: { categories: StoreCategory[] }) {
                 </div>
 
                 <div>
-                  <h3 className="text-base font-semibold text-navy-900 group-hover:text-blue-600 transition-colors">
+                  <h3 className="text-base font-semibold text-slate-900 group-hover:text-blue-600 transition-colors">
                     {category.name}
                   </h3>
                   {category.description && (
@@ -330,13 +330,13 @@ const DIRECTORIES = [
 
 function DirectoriesSection() {
   return (
-    <section className="bg-navy-900 py-16 sm:py-20">
+    <section className="bg-slate-900 py-16 sm:py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center">
           <h2 className="text-3xl font-bold text-white sm:text-4xl">
             Find Detailers Near You
           </h2>
-          <p className="mx-auto mt-3 max-w-xl text-navy-300">
+          <p className="mx-auto mt-3 max-w-xl text-slate-300">
             Explore our network of aircraft detailing directories to find trusted
             professionals in your area.
           </p>
@@ -349,12 +349,12 @@ function DirectoriesSection() {
               href={directory.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="group rounded-lg bg-navy-800 p-5 transition-colors hover:bg-navy-700"
+              className="group rounded-lg bg-slate-800 p-5 transition-colors hover:bg-slate-700"
             >
               <h3 className="text-base font-semibold text-white group-hover:text-blue-300 transition-colors">
                 {directory.name}
               </h3>
-              <p className="mt-2 text-sm leading-relaxed text-navy-300">
+              <p className="mt-2 text-sm leading-relaxed text-slate-300">
                 {directory.description}
               </p>
             </a>

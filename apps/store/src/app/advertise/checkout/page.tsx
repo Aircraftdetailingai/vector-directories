@@ -30,12 +30,12 @@ function CheckoutForm() {
     <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6 lg:px-8">
       <Link
         href="/advertise"
-        className="text-sm text-navy-700 hover:text-navy-900"
+        className="text-sm text-slate-700 hover:text-slate-900"
       >
         &larr; Back to Placements
       </Link>
 
-      <h1 className="mt-4 text-3xl font-bold text-navy-900">
+      <h1 className="mt-4 text-3xl font-bold text-slate-900">
         Checkout: {placement.name}
       </h1>
       <p className="mt-1 text-gray-600">
@@ -111,7 +111,7 @@ function CheckoutForm() {
 
             <button
               type="submit"
-              className="w-full rounded-lg bg-navy-900 px-4 py-3 text-sm font-semibold text-white transition-colors hover:bg-navy-800"
+              className="w-full rounded-lg bg-slate-900 px-4 py-3 text-sm font-semibold text-white transition-colors hover:bg-slate-800"
             >
               Continue to Payment
             </button>
@@ -120,7 +120,7 @@ function CheckoutForm() {
 
         {/* Preview */}
         <div>
-          <h2 className="text-lg font-semibold text-navy-900">
+          <h2 className="text-lg font-semibold text-slate-900">
             Ad Preview
           </h2>
           <div className="mt-4 rounded-lg border border-gray-200 bg-white p-4">

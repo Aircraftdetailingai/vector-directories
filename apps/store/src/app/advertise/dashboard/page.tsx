@@ -47,7 +47,7 @@ export default async function AdvertiserDashboardPage() {
         <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between">
             <div>
-              <h1 className="text-3xl font-bold text-navy-900">
+              <h1 className="text-3xl font-bold text-slate-900">
                 Advertiser Dashboard
               </h1>
               <p className="mt-1 text-gray-600">
@@ -56,7 +56,7 @@ export default async function AdvertiserDashboardPage() {
             </div>
             <Link
               href="/advertise"
-              className="rounded-lg bg-navy-900 px-4 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-navy-800"
+              className="rounded-lg bg-slate-900 px-4 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-slate-800"
             >
               Create New Ad
             </Link>
@@ -66,19 +66,19 @@ export default async function AdvertiserDashboardPage() {
           <div className="mt-8 grid gap-4 sm:grid-cols-3">
             <div className="rounded-lg border border-gray-200 bg-white p-6">
               <p className="text-sm text-gray-600">Active Ads</p>
-              <p className="mt-1 text-2xl font-bold text-navy-900">
+              <p className="mt-1 text-2xl font-bold text-slate-900">
                 {ads.filter((ad: any) => ad.status === "active").length}
               </p>
             </div>
             <div className="rounded-lg border border-gray-200 bg-white p-6">
               <p className="text-sm text-gray-600">Total Impressions</p>
-              <p className="mt-1 text-2xl font-bold text-navy-900">
+              <p className="mt-1 text-2xl font-bold text-slate-900">
                 {ads.reduce((sum: number, ad: any) => sum + (ad.impressions ?? 0), 0).toLocaleString()}
               </p>
             </div>
             <div className="rounded-lg border border-gray-200 bg-white p-6">
               <p className="text-sm text-gray-600">Monthly Spend</p>
-              <p className="mt-1 text-2xl font-bold text-navy-900">
+              <p className="mt-1 text-2xl font-bold text-slate-900">
                 ${totalSpend}
               </p>
             </div>
@@ -91,7 +91,7 @@ export default async function AdvertiserDashboardPage() {
                 <p className="text-gray-500">No ads yet.</p>
                 <Link
                   href="/advertise"
-                  className="mt-4 inline-block rounded-lg bg-navy-900 px-6 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-navy-800"
+                  className="mt-4 inline-block rounded-lg bg-slate-900 px-6 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-slate-800"
                 >
                   Create Your First Ad
                 </Link>

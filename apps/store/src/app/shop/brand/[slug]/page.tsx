@@ -68,10 +68,10 @@ export default async function BrandPage({ params }: BrandPageProps) {
       <Header />
       <main className="flex-1">
         {/* Brand Hero */}
-        <section className="border-b border-gray-200 bg-navy-900">
+        <section className="border-b border-gray-200 bg-slate-900">
           <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
             <nav className="mb-4">
-              <ol className="flex items-center gap-2 text-sm text-navy-300">
+              <ol className="flex items-center gap-2 text-sm text-slate-300">
                 <li>
                   <Link
                     href="/shop"
@@ -94,12 +94,12 @@ export default async function BrandPage({ params }: BrandPageProps) {
             </h1>
 
             {brand.description && (
-              <p className="mt-3 max-w-2xl text-lg leading-relaxed text-navy-300">
+              <p className="mt-3 max-w-2xl text-lg leading-relaxed text-slate-300">
                 {brand.description}
               </p>
             )}
 
-            <p className="mt-4 text-sm text-navy-400">
+            <p className="mt-4 text-sm text-slate-400">
               {total} {total === 1 ? "product" : "products"}
             </p>
           </div>
@@ -110,7 +110,7 @@ export default async function BrandPage({ params }: BrandPageProps) {
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             {products.length === 0 ? (
               <div className="flex flex-col items-center justify-center py-20 text-center">
-                <h3 className="text-lg font-semibold text-navy-900">
+                <h3 className="text-lg font-semibold text-slate-900">
                   Products coming soon
                 </h3>
                 <p className="mt-2 text-sm text-gray-500">

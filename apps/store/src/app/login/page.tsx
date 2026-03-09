@@ -18,7 +18,7 @@ function LoginForm() {
   return (
     <div className="w-full max-w-md">
       <div className="rounded-lg border border-gray-200 bg-white p-8 shadow-sm">
-        <h1 className="text-center text-2xl font-bold text-navy-900">
+        <h1 className="text-center text-2xl font-bold text-slate-900">
           Sign In
         </h1>
         <p className="mt-2 text-center text-sm text-gray-600">
@@ -59,13 +59,13 @@ function LoginForm() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="you@company.com"
-                className="mt-1 block w-full rounded-lg border border-gray-300 px-3 py-2.5 text-sm shadow-sm focus:border-navy-500 focus:outline-none focus:ring-1 focus:ring-navy-500"
+                className="mt-1 block w-full rounded-lg border border-gray-300 px-3 py-2.5 text-sm shadow-sm focus:border-slate-500 focus:outline-none focus:ring-1 focus:ring-slate-500"
               />
             </div>
 
             <button
               type="submit"
-              className="w-full rounded-lg bg-navy-900 px-4 py-3 text-sm font-semibold text-white transition-colors hover:bg-navy-800"
+              className="w-full rounded-lg bg-slate-900 px-4 py-3 text-sm font-semibold text-white transition-colors hover:bg-slate-800"
             >
               Send Sign-In Link
             </button>

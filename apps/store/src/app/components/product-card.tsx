@@ -80,13 +80,13 @@ export function ProductCard({ product, onAddToCart }: ProductCardProps) {
         )}
 
         {/* Name */}
-        <h3 className="mt-1 line-clamp-2 text-sm font-semibold text-navy-900">
+        <h3 className="mt-1 line-clamp-2 text-sm font-semibold text-slate-900">
           {product.name}
         </h3>
 
         {/* Price */}
         <div className="mt-2 flex items-center gap-2">
-          <span className="font-bold text-navy-900">
+          <span className="font-bold text-slate-900">
             ${product.base_price.toFixed(2)}
           </span>
           {product.compare_at_price && (

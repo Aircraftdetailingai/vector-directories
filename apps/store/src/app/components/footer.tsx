@@ -26,7 +26,7 @@ const companyLinks = [
 
 export function Footer() {
   return (
-    <footer className="bg-navy-900">
+    <footer className="bg-slate-900">
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
           {/* Brand */}
@@ -34,7 +34,7 @@ export function Footer() {
             <Link href="/" className="text-lg font-bold text-white">
               Aircraft Detailing 101
             </Link>
-            <p className="mt-3 text-sm leading-relaxed text-navy-300">
+            <p className="mt-3 text-sm leading-relaxed text-slate-300">
               Your trusted source for professional aircraft detailing products
               and supplies. Shop top brands, explore training resources, and
               connect with the detailing community.
@@ -51,7 +51,7 @@ export function Footer() {
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="text-sm text-navy-300 transition-colors hover:text-white"
+                    className="text-sm text-slate-300 transition-colors hover:text-white"
                   >
                     {link.label}
                   </Link>
@@ -70,7 +70,7 @@ export function Footer() {
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="text-sm text-navy-300 transition-colors hover:text-white"
+                    className="text-sm text-slate-300 transition-colors hover:text-white"
                   >
                     {link.label}
                   </Link>
@@ -89,7 +89,7 @@ export function Footer() {
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="text-sm text-navy-300 transition-colors hover:text-white"
+                    className="text-sm text-slate-300 transition-colors hover:text-white"
                   >
                     {link.label}
                   </Link>
@@ -100,8 +100,8 @@ export function Footer() {
         </div>
 
         {/* Copyright */}
-        <div className="mt-12 border-t border-navy-800 pt-8">
-          <p className="text-center text-sm text-navy-400">
+        <div className="mt-12 border-t border-slate-800 pt-8">
+          <p className="text-center text-sm text-slate-400">
             &copy; {new Date().getFullYear()} Aircraft Detailing 101. All rights
             reserved.
           </p>
