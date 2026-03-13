@@ -22,7 +22,9 @@ export async function registerSupplier(formData: FormData): Promise<void> {
   if (!companyName || !contactName || !email || !password) return;
 
   try {
-    const { createBrowserClient } = await import("@vector/db");
+    const { createBrowserClient, createServiceRoleClient } = await import(
+      "@vector/db"
+    );
     const supabase = createBrowserClient();
 
     // 1. Create auth user
@@ -42,11 +44,12 @@ export async function registerSupplier(formData: FormData): Promise<void> {
 
     const userId = authData.user?.id;
 
-    // 2. Create supplier record
+    // 2. Create supplier record (service role bypasses RLS since user has no session yet)
     if (userId) {
+      const admin = createServiceRoleClient();
       const slug = slugify(companyName);
 
-      const { error: insertError } = await supabase
+      const { error: insertError } = await admin
         .from("store_suppliers")
         .insert({
           user_id: userId,
@@ -60,8 +63,6 @@ export async function registerSupplier(formData: FormData): Promise<void> {
 
       if (insertError) {
         console.error("Supplier record insert error:", insertError);
-        // Auth user was created but supplier record failed — still show success
-        // Admin can link them later
       }
     }
 

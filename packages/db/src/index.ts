@@ -1,4 +1,4 @@
-export { createBrowserClient, createServerClient } from "./client";
+export { createBrowserClient, createServerClient, createServiceRoleClient } from "./client";
 export {
   getCompanyById,
   getCompanyBySlug,
