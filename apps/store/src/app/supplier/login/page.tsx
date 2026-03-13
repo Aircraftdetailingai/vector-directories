@@ -82,7 +82,17 @@ function SupplierLoginForm() {
         )}
       </div>
 
-      <p className="mt-6 text-center text-xs text-gray-500">
+      <p className="mt-6 text-center text-sm text-gray-400">
+        Want to become a supplier?{" "}
+        <Link
+          href="/vendor/register"
+          className="font-medium text-blue-400 hover:text-blue-300"
+        >
+          Register here
+        </Link>
+      </p>
+
+      <p className="mt-3 text-center text-xs text-gray-500">
         <Link href="/" className="underline hover:text-gray-300">
           Back to Store
         </Link>

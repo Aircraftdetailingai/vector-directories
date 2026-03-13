@@ -82,7 +82,17 @@ function LoginForm() {
         )}
       </div>
 
-      <p className="mt-6 text-center text-xs text-gray-500">
+      <p className="mt-6 text-center text-sm text-gray-600">
+        Don&apos;t have an account?{" "}
+        <Link
+          href="/register"
+          className="font-medium text-blue-600 hover:text-blue-700"
+        >
+          Sign up here
+        </Link>
+      </p>
+
+      <p className="mt-3 text-center text-xs text-gray-500">
         By signing in, you agree to our{" "}
         <Link href="/terms" className="underline hover:text-gray-700">
           Terms

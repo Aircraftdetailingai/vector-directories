@@ -37,10 +37,10 @@ export function Header() {
           ))}
 
           <Link
-            href="/supplier"
+            href="/vendor/register"
             className="text-xs font-medium text-slate-300 transition-colors hover:text-white"
           >
-            Supplier Portal
+            Become a Supplier
           </Link>
 
           <Link
@@ -119,11 +119,11 @@ export function Header() {
               </Link>
             ))}
             <Link
-              href="/supplier"
+              href="/vendor/register"
               onClick={() => setMobileOpen(false)}
               className="rounded-md px-3 py-2 text-xs font-medium text-slate-300 hover:bg-slate-800 hover:text-white"
             >
-              Supplier Portal
+              Become a Supplier
             </Link>
             <Link
               href="/login"
