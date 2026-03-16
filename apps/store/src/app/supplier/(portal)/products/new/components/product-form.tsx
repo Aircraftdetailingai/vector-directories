@@ -37,6 +37,9 @@ export function ProductForm({
 
   const isEdit = !!product;
 
+  const [productType, setProductType] = useState<
+    "physical" | "digital" | "training"
+  >(product?.product_type ?? "physical");
   const [name, setName] = useState(product?.name ?? "");
   const [slug, setSlug] = useState(product?.slug ?? "");
   const [shortDescription, setShortDescription] = useState(
@@ -150,6 +153,7 @@ export function ProductForm({
       formData.set("product_id", product.id);
     }
     formData.set("supplier_id", supplierId);
+    formData.set("product_type", productType);
     formData.set("name", name);
     formData.set("slug", slug);
     formData.set("short_description", shortDescription);
@@ -228,6 +232,21 @@ export function ProductForm({
                 className={inputClasses}
                 required
               />
+            </div>
+            <div>
+              <label htmlFor="product_type" className={labelClasses}>
+                Product Type
+              </label>
+              <select
+                id="product_type"
+                value={productType}
+                onChange={(e) => setProductType(e.target.value as "physical" | "digital" | "training")}
+                className={inputClasses}
+              >
+                <option value="physical">Physical Product</option>
+                <option value="digital">Digital Product</option>
+                <option value="training">Training Course</option>
+              </select>
             </div>
             <div>
               <label htmlFor="slug" className={labelClasses}>
@@ -391,7 +410,8 @@ export function ProductForm({
           </div>
         </section>
 
-        {/* Weight & Dimensions */}
+        {/* Weight & Dimensions (physical products only) */}
+        {productType === "physical" && (
         <section className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
           <h2 className="mb-4 text-lg font-semibold text-[#0F172A]">
             Weight & Dimensions
@@ -459,6 +479,7 @@ export function ProductForm({
             </div>
           </div>
         </section>
+        )}
 
         {/* Variants */}
         <section className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">

@@ -48,6 +48,7 @@ export interface StoreProduct {
   is_featured: boolean;
   weight_oz: number | null;
   dimensions_json: Record<string, number> | null;
+  product_type: "physical" | "digital" | "training";
   tags: string[];
   created_at: string;
   updated_at: string;

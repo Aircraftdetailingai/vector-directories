@@ -7,4 +7,5 @@ export const SEED_CATEGORIES: StoreCategory[] = [
   { id: "c4", name: "Cleaners", slug: "cleaners", description: "Degreasers, wash soaps, and surface cleaners for aviation.", parent_id: null, sort_order: 4 },
   { id: "c5", name: "Tools", slug: "tools", description: "Polishers, applicators, and specialty detailing tools.", parent_id: null, sort_order: 5 },
   { id: "c6", name: "Kits", slug: "kits", description: "Complete detailing kits and bundles for every job.", parent_id: null, sort_order: 6 },
+  { id: "c7", name: "Training & Courses", slug: "training", description: "Professional aircraft detailing training courses and educational content.", parent_id: null, sort_order: 7 },
 ];

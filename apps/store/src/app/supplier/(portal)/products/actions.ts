@@ -31,6 +31,7 @@ export async function createProduct(formData: FormData): Promise<void> {
     ? parseFloat(formData.get("height") as string)
     : null;
   const supplierId = formData.get("supplier_id") as string;
+  const productType = (formData.get("product_type") as string) || "physical";
   const status = (formData.get("status") as string) || "draft";
 
   if (!name || !slug || !supplierId) return;
@@ -59,6 +60,7 @@ export async function createProduct(formData: FormData): Promise<void> {
         compare_at_price: compareAtPrice,
         sku,
         status,
+        product_type: productType,
         is_featured: false,
         weight_oz: weightOz,
         dimensions_json: dimensionsJson,
@@ -157,6 +159,7 @@ export async function updateProduct(formData: FormData): Promise<void> {
   const height = formData.get("height")
     ? parseFloat(formData.get("height") as string)
     : null;
+  const productType = (formData.get("product_type") as string) || "physical";
   const status = (formData.get("status") as string) || "draft";
 
   if (!name || !slug) return;
@@ -184,6 +187,7 @@ export async function updateProduct(formData: FormData): Promise<void> {
         compare_at_price: compareAtPrice,
         sku,
         status,
+        product_type: productType,
         weight_oz: weightOz,
         dimensions_json: dimensionsJson,
         tags,
