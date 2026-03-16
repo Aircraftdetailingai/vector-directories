@@ -1,6 +1,7 @@
 "use server";
 
 import { redirect } from "next/navigation";
+import { createClient } from "@supabase/supabase-js";
 
 export async function registerCustomer(formData: FormData): Promise<void> {
   const fullName = formData.get("full_name") as string;
@@ -10,8 +11,10 @@ export async function registerCustomer(formData: FormData): Promise<void> {
   if (!email || !password || !fullName) return;
 
   try {
-    const { createBrowserClient } = await import("@vector/db");
-    const supabase = createBrowserClient();
+    const supabase = createClient(
+      process.env.NEXT_PUBLIC_SUPABASE_URL!,
+      process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+    );
 
     const { error } = await supabase.auth.signUp({
       email,

@@ -1,6 +1,7 @@
 "use server";
 
 import { redirect } from "next/navigation";
+import { createClient } from "@supabase/supabase-js";
 
 function slugify(text: string): string {
   return text
@@ -21,13 +22,13 @@ export async function registerSupplier(formData: FormData): Promise<void> {
 
   if (!companyName || !contactName || !email || !password) return;
 
-  try {
-    const { createBrowserClient, createServiceRoleClient } = await import(
-      "@vector/db"
-    );
-    const supabase = createBrowserClient();
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
+  const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!;
+  const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY!;
 
-    // 1. Create auth user
+  try {
+    // 1. Create auth user with anon client
+    const supabase = createClient(supabaseUrl, supabaseAnonKey);
     const { data: authData, error: authError } = await supabase.auth.signUp({
       email,
       password,
@@ -44,9 +45,9 @@ export async function registerSupplier(formData: FormData): Promise<void> {
 
     const userId = authData.user?.id;
 
-    // 2. Create supplier record (service role bypasses RLS since user has no session yet)
+    // 2. Create supplier record with service role client (bypasses RLS)
     if (userId) {
-      const admin = createServiceRoleClient();
+      const admin = createClient(supabaseUrl, supabaseServiceKey);
       const slug = slugify(companyName);
 
       const { error: insertError } = await admin
